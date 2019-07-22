@@ -36,8 +36,13 @@ public class CustomSceneManager : MonoBehaviour
     }
 
 
-    public void Start()
-    {
+    public void Start() {
+        int k = 0;
+        for (int i = 0; i < SceneManager.sceneCount; i++) {
+            if (gameObject.scene != SceneManager.GetSceneAt(i)) {
+                SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(i));
+            }
+        }
         StartCoroutine(LoadSceneWithoutLoading(Scenes[StartingSceneIndex].name));
     }
 
