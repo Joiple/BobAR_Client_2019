@@ -482,7 +482,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 298008421}
-          m_MethodName: ResetTex
+          m_MethodName: Reload
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

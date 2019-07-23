@@ -163,13 +163,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e8f26c43045284c9a568b963fa9273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingSceneIndex: 0
-  NowLoaded: 
-  LoadingScreen: {fileID: 102900000, guid: 62c8919d9bf0a5b408d6f5740467e74a, type: 3}
-  Scenes:
+  scenes:
   - {fileID: 102900000, guid: fe4d2de71f0c2bc4196d5a56e51ce770, type: 3}
   - {fileID: 102900000, guid: 2cedcf40dab5ef94ca326e928fb656c6, type: 3}
   - {fileID: 102900000, guid: bc454a9051ab43f45a8652ce566973d8, type: 3}
+  startingSceneIndex: 0
+  loadingScreen: {fileID: 102900000, guid: 62c8919d9bf0a5b408d6f5740467e74a, type: 3}
+  Goto: 0
+  starter: 0
 --- !u!1 &1020975566
 GameObject:
   m_ObjectHideFlags: 0

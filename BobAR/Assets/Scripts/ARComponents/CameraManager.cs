@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -23,17 +24,19 @@ public class CameraManager : MonoBehaviour {
     }
 
     public void OnEnable() {
-        ResetTex();
+        StartCoroutine(ResetTex());
     }
 
-    public void ResetTex() {
-        if (texture != null) return;
+    public IEnumerator ResetTex() {
+        if (texture != null) yield break;
+
+        yield return new WaitForEndOfFrame();
         WebCamDevice[] dev = WebCamTexture.devices;
 
         if (dev.Length == 0) {
             Debug.Log("No Camera");
 
-            return;
+            yield break;
         }
 
         foreach (WebCamDevice cam in dev) {
@@ -48,14 +51,15 @@ public class CameraManager : MonoBehaviour {
         if (texture == null) {
             Debug.Log("No Back Camera");
 
-            return;
+            yield break;
         }
 
         texture.Play();
         Renderer.texture = texture;
     }
 
-    public void Update() {
-        
+    public void Reload() {
+        StartCoroutine(ResetTex());
     }
+
 }
