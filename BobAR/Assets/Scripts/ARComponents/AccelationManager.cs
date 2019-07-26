@@ -9,9 +9,10 @@ namespace ARComponents {
 
         public void Start() {
             target.transform.position= velocity = Vector3.zero;
+
         }
-        public void FixedUpdate() {
-            acc = Input.gyro.userAcceleration;
+        public void Update() {
+            acc = Input.gyro.userAcceleration*Time.deltaTime;
             velocity -= acc;
 
             if (imgProcessor.Stopping)

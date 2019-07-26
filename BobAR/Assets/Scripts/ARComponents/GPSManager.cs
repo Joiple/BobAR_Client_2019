@@ -11,11 +11,10 @@ namespace ARComponents {
         [NonSerialized] public static GPSManager instance;
         private LocationService gps;
         public float _radius = 6378137;
-        private float initialLat, initialLon, initialAlt;
+        public  float initialLat, initialLon, initialAlt;
         public float ConnectionWait = 5f;
         public List<Poi> pois;
         public bool RunningGPSFlag = false;
-
         public void Awake() {
             instance = this;
         }
@@ -27,6 +26,7 @@ namespace ARComponents {
         public IEnumerator GPSStart() {
             if (!Permission.HasUserAuthorizedPermission("android.permission.ACCESS_FINE_LOCATION"))
                 Permission.RequestUserPermission("android.permission.ACCESS_FINE_LOCATION");
+
             while (!Permission.HasUserAuthorizedPermission("android.permission.ACCESS_FINE_LOCATION")) {
                 yield return null;
             }
@@ -64,12 +64,11 @@ namespace ARComponents {
                 initialLon = gps.lastData.longitude;
                 initialLat = gps.lastData.latitude;
                 initialAlt = gps.lastData.altitude;
-
                 foreach (Poi p in pois) {
                     p.RefreshPosition();
                 }
 
-                Debug.Log(gps.lastData.longitude+"/"+gps.lastData.latitude+"/"+gps.lastData.altitude);
+                Debug.Log(gps.lastData.longitude + "/" + gps.lastData.latitude + "/" + gps.lastData.altitude);
 
                 yield return new WaitForSeconds(5f);
             }
@@ -84,8 +83,19 @@ namespace ARComponents {
             return (float) z;
         }
 
+        public static double ZToLat(float z) {
+            double lat = z;
+            lat = lat * 0.00001 / 0.12179047095976932582726898256213 + instance.initialLat;
+
+            return (float) lat;
+        }
+
         public static float AltToY(float alt) {
             return alt - instance.initialAlt;
+        }
+
+        public static float YtoAlt(float alt) {
+            return alt + instance.initialAlt;
         }
 
         public static float LonToX(double lon) {
@@ -93,6 +103,12 @@ namespace ARComponents {
             double x = lon;
 
             return (float) x;
+        }
+
+        public static double XToLon(float x) {
+            double lon = x;
+            lon = lon * 0.000001 / 0.00728553580298947812081345114627 + instance.initialLon;
+            return (float) lon;
         }
     }
 
