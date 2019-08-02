@@ -20,6 +20,7 @@ namespace CustomSceneManager {
         /// </summary>
         public void Awake() {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
 
         /// <summary>
@@ -93,6 +94,15 @@ namespace CustomSceneManager {
         public void LoadScene(int index) {
             StartCoroutine(LoadSceneWithLoading(scenes[index]));
         }
+
+        /// <summary>
+        /// 일반적인 씬 로드
+        /// </summary>
+        /// <param name="index">씬 번호</param>
+        public static void StaticLoadScene(int index) {
+            Instance.LoadScene(index);
+        }
+
 
         public void Update() {
             if (starter) {
