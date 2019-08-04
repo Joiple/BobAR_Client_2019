@@ -3,11 +3,11 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Debug = DebugWrap.Debug;
-using Object = UnityEngine.Object;
 
-namespace CustomSceneManager {
+namespace CustomSceneManagement {
 
     public class CustomSceneManager : MonoBehaviour {
+        public static IndivSceneManager CurrentManager;
         [NonSerialized] public static CustomSceneManager Instance;
         [Header("씬 모음")] public string[] scenes;
         [Header("처음 시작하는 씬 번호")] public int startingSceneIndex;
@@ -39,6 +39,7 @@ namespace CustomSceneManager {
         /// <param name="name">대상 씬의 이름</param>
         /// <returns></returns>
         public IEnumerator LoadSceneWithoutLoading(string name) {
+            CurrentManager = null;
             yield return new WaitForEndOfFrame();
             Debug.Log("Getting Target Scene");
             Scene buffer = SceneManager.GetSceneByName(name);
@@ -75,6 +76,7 @@ namespace CustomSceneManager {
         /// <param name="name">대상 씬의 이름</param>
         /// <returns></returns>
         public IEnumerator LoadSceneWithLoading(string name) {
+            CurrentManager = null;
             Debug.Log("Getting Active Scene");
             Scene scene = SceneManager.GetActiveScene();
             Debug.Log("Loading LoadingScene");

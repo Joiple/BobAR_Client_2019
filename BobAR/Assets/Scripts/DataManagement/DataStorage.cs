@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace DataStorage {
+namespace DataManagement {
 
     public class DataStorage : MonoBehaviour {
         public static DataStorage Instance;
