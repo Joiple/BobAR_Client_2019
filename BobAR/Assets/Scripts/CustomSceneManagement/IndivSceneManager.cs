@@ -3,12 +3,9 @@
 namespace CustomSceneManagement {
 
     public class IndivSceneManager :MonoBehaviour{
-        public virtual void Start() {
-            CustomSceneManager.CurrentManager = this;
-        }
+        public virtual void Start()
+        {
 
-        public void OnDestroy() {
-            if (CustomSceneManager.CurrentManager.Equals(this)) CustomSceneManager.CurrentManager = null;
         }
     }
 
