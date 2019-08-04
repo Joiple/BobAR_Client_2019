@@ -8,6 +8,7 @@ namespace Network
         public Key author;
         public string content;
         public Key restaurant;
+        public List<Key> followers;
 
 
         public ILoadable Load(string input) {

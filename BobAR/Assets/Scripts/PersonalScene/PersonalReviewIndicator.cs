@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 namespace PersonalScene {
 
-    public class ReviewIndicator : MonoBehaviour {
+    public class PersonalReviewIndicator : MonoBehaviour {
         public Image profileImage;
         public TextMeshProUGUI restaurantName;
         public Review review;
-        public ReviewIndicator Initialize(Review tR) {
+        public PersonalReviewIndicator Initialize(Review tR) {
             review = tR;
             StartCoroutine(LoadInternal());
             return this;

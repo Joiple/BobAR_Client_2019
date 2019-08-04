@@ -17,8 +17,8 @@ namespace PersonalScene {
 
         public Image profileImage;
         public List<Review> reviews=new List<Review>();
-        public List<ReviewIndicator> reviewIndicators=new List<ReviewIndicator>();
-        public ReviewIndicator ReviewInidicatorPrefab;
+        public List<PersonalReviewIndicator> reviewIndicators=new List<PersonalReviewIndicator>();
+        public PersonalReviewIndicator personalReviewInidicatorPrefab;
         public Transform ReviewGroup;
         private User target;
         public override void Start() {
@@ -45,7 +45,7 @@ namespace PersonalScene {
 
             foreach (Client<Review> tR in tReviews) {
                 while (!tR.Prepared) yield return null;
-                ReviewIndicator tRet = Instantiate(ReviewInidicatorPrefab, ReviewGroup).Initialize(tR.Target);
+                PersonalReviewIndicator tRet = Instantiate(personalReviewInidicatorPrefab, ReviewGroup).Initialize(tR.Target);
                 reviews.Add(tR.Target);
                 reviewIndicators.Add(tRet);
             }
