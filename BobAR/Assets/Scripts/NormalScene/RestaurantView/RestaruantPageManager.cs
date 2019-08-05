@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using DataManagement;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,10 @@ namespace NormalScene.RestaurantView {
         public TextMeshProUGUI restaurantName,
                                address,
                                phoneNumber;
-        
+        public void WriteReview()
+        {
+            //DataStorage.Instance.AddItem("Restaurant")
+        }
     }
 
 }

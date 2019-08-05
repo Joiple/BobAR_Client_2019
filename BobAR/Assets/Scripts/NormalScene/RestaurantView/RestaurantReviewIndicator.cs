@@ -24,6 +24,7 @@ namespace NormalScene.RestaurantView {
         public IEnumerator InitializeInternal() {
             Client<ImageSet> imgClient = new Client<ImageSet>(target.pictures[0].ToString());
             while (!imgClient.Prepared) yield return null;
+            thumbnailImage.sprite = imgClient.Target.sprite;
             content.text = target.content;
             following.text = target.followers.Count.ToString();
         }
