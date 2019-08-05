@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using NormalScene.Pages;
+using UnityEngine;
 
 namespace NormalScene {
-
+    [RequireComponent(typeof(NormalSceneManager))]
     public class PrefabManager : MonoBehaviour {
-        public GameObject restaurantPage,
+        public Page restaurantPage,
                           userPage,
                           reviewWritePage;
     }

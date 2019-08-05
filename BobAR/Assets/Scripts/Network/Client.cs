@@ -1,12 +1,14 @@
-﻿using System.Net.Sockets;
+﻿using System;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using UnityEngine;
 
 namespace Network {
 
     public static class NetworkConstants {
         public const string Ip = "127.0.0.1";
-        public const char diff = '\\';
+        public const char Diff = '\\';
     }
 
     public class Client<T> where T : ILoadable,new() {
@@ -27,23 +29,33 @@ namespace Network {
         }
 
         void Load() {
-            while (true) {
-                int bufferSize = internalClient.ReceiveBufferSize;
+            try {
+                while (true) {
+                    int bufferSize = internalClient.ReceiveBufferSize;
 
-                if (bufferSize > 0) {
-                    byte[] buffer = new byte[bufferSize];
-                    stream.Read(buffer, 0, bufferSize);
-                    string output = Encoding.UTF8.GetString(buffer);
-                    T temp = (T) new T().Load(output);
-                    Target = temp;
-                    break;
+                    if (bufferSize > 0) {
+                        byte[] buffer = new byte[bufferSize];
+                        stream.Read(buffer, 0, bufferSize);
+                        string output = Encoding.UTF8.GetString(buffer);
+                        T temp = (T) new T().Load(output);
+                        Target = temp;
+                        prepared = true;
+
+                        break;
+                    }
+
+                    Thread.Sleep(0);
                 }
-                Thread.Sleep(0);
+            }
+            catch (Exception e) {
+                Debug.LogError(e);
+                Target = default;
+                prepared = true;
             }
         }
 
 
-        public bool Prepared => Target != null;
+        public bool prepared =false;
     }
 
 }

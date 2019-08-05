@@ -6,9 +6,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace NormalScene.UserView {
+namespace NormalScene.Pages.UserView {
 
-    public class UserPageManager : MonoBehaviour {
+    public class UserPageManager : Page{
         public TextMeshProUGUI nickname,
                                 following,
                                 follower,
@@ -18,22 +18,22 @@ namespace NormalScene.UserView {
         public List<Review> reviews=new List<Review>();
         public List<UserReviewIndicator> reviewIndicators=new List<UserReviewIndicator>();
         public UserReviewIndicator userReviewInidicatorPrefab;
-        public Transform ReviewGroup;
+        public Transform reviewGroup;
         private User target;
         public void Start() {
             StartCoroutine(InitialLoad());
         }
 
         private IEnumerator InitialLoad() {
-            Client<User> t = new Client<User>(DataStorage.Instance.GetItem<Key>("PersonalTarget").ToString());
-            while (!t.Prepared) yield return null;
+            Client<User> t = new Client<User>(DataStorage.instance.GetItem<Key>(DataStorage.NextUser).ToString());
+            while (!t.prepared) yield return null;
             target = t.Target;
             nickname.text = target.name;
             following.text= target.followings.Count.ToString();
             follower.text = target.followers.Count.ToString();
             reviewCount.text = target.reviewIds.Count.ToString();
             Client<ImageSet> tImg=new Client<ImageSet>(target.imageKey.ToString());
-            while (!tImg.Prepared) yield return null;
+            while (!tImg.prepared) yield return null;
             profileImage.sprite = tImg.Target.sprite;
             List<Client<Review>> tReviews=new List<Client<Review>>();
 
@@ -42,8 +42,8 @@ namespace NormalScene.UserView {
             }
 
             foreach (Client<Review> tR in tReviews) {
-                while (!tR.Prepared) yield return null;
-                UserReviewIndicator tRet = Instantiate(userReviewInidicatorPrefab, ReviewGroup).Initialize(tR.Target);
+                while (!tR.prepared) yield return null;
+                UserReviewIndicator tRet = Instantiate(userReviewInidicatorPrefab, reviewGroup).Initialize(tR.Target);
                 reviews.Add(tR.Target);
                 reviewIndicators.Add(tRet);
             }

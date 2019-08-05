@@ -4,40 +4,41 @@ using UnityEngine;
 namespace DataManagement {
 
     public class DataStorage : MonoBehaviour {
-        public static DataStorage Instance;
+        public static DataStorage instance;
 
         public const string NextUser = "NextUser",
                             NextRestaurant = "NextRestaurant",
                             NextReview = "NextReview",
-                            InitialScene = "InitialScene";
+                            InitialScene = "InitialScene",
+                            MyKey = "MyKey";
 
         private void Start() {
-            if (Instance != null) Destroy(Instance);
-            Instance = this;
+            if (instance != null) Destroy(instance);
+            instance = this;
         }
 
-        private Dictionary<string, object> Data = new Dictionary<string, object>();
+        private Dictionary<string, object> data = new Dictionary<string, object>();
 
         public bool AddItem(string key, object input) {
-            if (Data.ContainsKey(key)) return false;
-            Data.Add(key, input);
+            if (data.ContainsKey(key)) return false;
+            data.Add(key, input);
 
             return true;
         }
 
         public T GetItem<T>(string key) {
-            if (!Data.ContainsKey(key)) return default(T);
+            if (!data.ContainsKey(key)) return default(T);
 
-            return Data[key] is T ? (T) Data[key] : default(T);
+            return data[key] is T ? (T) data[key] : default(T);
         }
 
         public void Clear() {
-            Data.Clear();
+            data.Clear();
         }
 
         public bool Remove(string key) {
-            if (!Data.ContainsKey(key)) return false;
-            Data.Remove(key);
+            if (!data.ContainsKey(key)) return false;
+            data.Remove(key);
 
             return true;
         }

@@ -1,8 +1,7 @@
-﻿using System.Net.Mime;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace ReviewWriteScene
+namespace NormalScene.Pages.ReviewWriteScene
 {
     public class ImagePreview:MonoBehaviour
     {

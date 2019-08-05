@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace NormalScene.UserView {
+namespace NormalScene.Pages.UserView {
 
     public class UserReviewIndicator : MonoBehaviour {
         public Image profileImage;
@@ -19,12 +19,12 @@ namespace NormalScene.UserView {
         private IEnumerator LoadInternal() {
             Client<Restaurant> restaurant=new Client<Restaurant>(review.restaurant.ToString());
 
-            while (!restaurant.Prepared) yield return null;
+            while (!restaurant.prepared) yield return null;
             restaurantName.text = restaurant.Target.name;
             
             Client<ImageSet> firstImage=new Client<ImageSet>(review.pictures[0].ToString());
 
-            while (!firstImage.Prepared) yield return null;
+            while (!firstImage.prepared) yield return null;
             profileImage.sprite = firstImage.Target.sprite;
 
 

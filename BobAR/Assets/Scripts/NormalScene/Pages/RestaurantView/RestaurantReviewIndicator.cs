@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace NormalScene.RestaurantView {
+namespace NormalScene.Pages.RestaurantView {
 
     public class RestaurantReviewIndicator :MonoBehaviour {
         public Image thumbnailImage;
@@ -12,7 +12,7 @@ namespace NormalScene.RestaurantView {
         public TextMeshProUGUI content,
                                following;
 
-        public Image FollowedIndicator;
+        public Image followedIndicator;
 
         public Review target;
         public void Initialize(Review review) {
@@ -23,7 +23,7 @@ namespace NormalScene.RestaurantView {
 
         public IEnumerator InitializeInternal() {
             Client<ImageSet> imgClient = new Client<ImageSet>(target.pictures[0].ToString());
-            while (!imgClient.Prepared) yield return null;
+            while (!imgClient.prepared) yield return null;
             thumbnailImage.sprite = imgClient.Target.sprite;
             content.text = target.content;
             following.text = target.followers.Count.ToString();

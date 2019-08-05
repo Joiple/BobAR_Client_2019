@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.Profiling;
 using UnityEngine.UI;
@@ -8,7 +7,7 @@ namespace ARComponents {
 
     public class ImageProcessor : MonoBehaviour {
         public float threshold, similarity;
-        public bool Stopping=true;
+        public bool stopping=true;
         private Color[,] prevValues, nowValues;
         private CameraManager cam;
         private Texture2D tex;
@@ -58,7 +57,7 @@ namespace ARComponents {
                     }
 
                     similarity = tmpSim;
-                    Stopping = similarity > threshold;
+                    stopping = similarity > threshold;
                 }
                 
             }

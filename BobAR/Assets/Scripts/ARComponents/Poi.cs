@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using CustomSceneManagement;
-using MainScene;
-using Network;
+﻿using Network;
 using UnityEngine;
 
 namespace ARComponents {
@@ -11,7 +8,7 @@ namespace ARComponents {
         public float altitude;
         public Restaurant target;
         public void RefreshPosition() {
-            transform.position = new Vector3(GPSManager.LonToX(longitude), GPSManager.AltToY(altitude), GPSManager.LatToZ(latitude));
+            transform.position = new Vector3(GpsManager.LonToX(longitude), GpsManager.AltToY(altitude), GpsManager.LatToZ(latitude));
         }
 
         public void Initialize(Restaurant t) {

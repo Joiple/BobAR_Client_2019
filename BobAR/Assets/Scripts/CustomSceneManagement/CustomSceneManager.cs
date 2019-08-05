@@ -7,7 +7,7 @@ using Debug = DebugWrap.Debug;
 namespace CustomSceneManagement {
 
     public class CustomSceneManager : MonoBehaviour {
-        [NonSerialized] public static CustomSceneManager Instance;
+        [NonSerialized] public static CustomSceneManager instance;
         [Header("씬 모음")] public string[] scenes;
         [Header("처음 시작하는 씬 번호")] public int startingSceneIndex;
         [Header("로딩스크린용 씬")] public string loadingScreen;
@@ -18,7 +18,7 @@ namespace CustomSceneManagement {
         /// 초기화
         /// </summary>
         public void Awake() {
-            Instance = this;
+            instance = this;
             DontDestroyOnLoad(gameObject);
         }
 
@@ -99,7 +99,7 @@ namespace CustomSceneManagement {
         /// </summary>
         /// <param name="index">씬 번호</param>
         public static void StaticLoadScene(int index) {
-            Instance.LoadScene(index);
+            instance.LoadScene(index);
         }
 
 
