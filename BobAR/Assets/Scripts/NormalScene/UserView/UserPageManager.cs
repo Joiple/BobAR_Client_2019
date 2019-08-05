@@ -1,15 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using CustomSceneManagement;
 using DataManagement;
 using Network;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace PersonalScene {
+namespace NormalScene.UserView {
 
-    public class PersonalSceneManager : IndivSceneManager {
+    public class UserPageManager : MonoBehaviour {
         public TextMeshProUGUI nickname,
                                 following,
                                 follower,
@@ -17,12 +16,11 @@ namespace PersonalScene {
 
         public Image profileImage;
         public List<Review> reviews=new List<Review>();
-        public List<PersonalReviewIndicator> reviewIndicators=new List<PersonalReviewIndicator>();
-        public PersonalReviewIndicator personalReviewInidicatorPrefab;
+        public List<UserReviewIndicator> reviewIndicators=new List<UserReviewIndicator>();
+        public UserReviewIndicator userReviewInidicatorPrefab;
         public Transform ReviewGroup;
         private User target;
-        public override void Start() {
-            base.Start();
+        public void Start() {
             StartCoroutine(InitialLoad());
         }
 
@@ -45,7 +43,7 @@ namespace PersonalScene {
 
             foreach (Client<Review> tR in tReviews) {
                 while (!tR.Prepared) yield return null;
-                PersonalReviewIndicator tRet = Instantiate(personalReviewInidicatorPrefab, ReviewGroup).Initialize(tR.Target);
+                UserReviewIndicator tRet = Instantiate(userReviewInidicatorPrefab, ReviewGroup).Initialize(tR.Target);
                 reviews.Add(tR.Target);
                 reviewIndicators.Add(tRet);
             }

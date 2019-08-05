@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace RestaurantScene {
+namespace NormalScene.RestaurantView {
 
     public class RestaurantReviewIndicator :MonoBehaviour {
         public Image thumbnailImage;

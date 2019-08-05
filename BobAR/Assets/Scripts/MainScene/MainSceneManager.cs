@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 namespace MainScene {
 
-    public class MainSceneManager : IndivSceneManager {
+    public class MainSceneManager : MonoBehaviour{
         public List<Restaurant> searchResults = new List<Restaurant>();
 
         
@@ -37,8 +37,9 @@ namespace MainScene {
         }
 
         public void ToMyPage() {
-            DataStorage.Instance.AddItem("PersonalTarget", DataStorage.Instance.GetItem<Key>("MyKey"));
-            CustomSceneManager.Instance.LoadScene(2);
+            DataStorage.Instance.AddItem(DataStorage.InitialScene, DataStorage.Instance.GetItem<Key>("MyKey"));
+            DataStorage.Instance.AddItem(DataStorage.NextUser, DataStorage.Instance.GetItem<Key>("MyKey"));
+            CustomSceneManager.Instance.LoadScene(1);
         }
 
         public void ToRestaurantPage(Key key) {

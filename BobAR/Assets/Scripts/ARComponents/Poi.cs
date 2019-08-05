@@ -24,8 +24,6 @@ namespace ARComponents {
             altitude = target.altitude;
             RefreshPosition();
         }
-
-        public void GoRestaurantPage() => ((MainSceneManager) CustomSceneManager.CurrentManager).ToRestaurantPage(target.key);
     }
 
 }

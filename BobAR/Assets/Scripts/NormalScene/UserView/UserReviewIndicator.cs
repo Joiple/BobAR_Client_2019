@@ -4,13 +4,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace PersonalScene {
+namespace NormalScene.UserView {
 
-    public class PersonalReviewIndicator : MonoBehaviour {
+    public class UserReviewIndicator : MonoBehaviour {
         public Image profileImage;
         public TextMeshProUGUI restaurantName;
         public Review review;
-        public PersonalReviewIndicator Initialize(Review tR) {
+        public UserReviewIndicator Initialize(Review tR) {
             review = tR;
             StartCoroutine(LoadInternal());
             return this;

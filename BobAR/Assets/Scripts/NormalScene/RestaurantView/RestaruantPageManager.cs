@@ -2,9 +2,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace RestaurantScene {
+namespace NormalScene.RestaurantView {
 
-    public class RestaruantSceneManager : MonoBehaviour {
+    public class RestaruantPageManager : MonoBehaviour {
         public Image previewImage;
 
         public TextMeshProUGUI restaurantName,

@@ -6,6 +6,11 @@ namespace DataManagement {
     public class DataStorage : MonoBehaviour {
         public static DataStorage Instance;
 
+        public const string NextUser = "NextUser",
+                            NextRestaurant = "NextRestaurant",
+                            NextReview = "NextReview",
+                            InitialScene = "InitialScene";
+
         private void Start() {
             if (Instance != null) Destroy(Instance);
             Instance = this;
