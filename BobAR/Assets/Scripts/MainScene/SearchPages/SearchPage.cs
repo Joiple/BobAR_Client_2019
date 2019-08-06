@@ -9,7 +9,6 @@ namespace MainScene.SearchPages {
     public class SearchPage : MonoBehaviour {
         public List<Restaurant> searchResults;
         public void Search(string value) {
-            //TODO 검색
             StartCoroutine(SearchInternal(value));
         }
 
@@ -27,6 +26,21 @@ namespace MainScene.SearchPages {
             foreach (Client<Restaurant> t in pacakges) {
                 while (!t.prepared) yield return null;
                 searchResults.Add(t.Target);
+            }
+        }
+
+        public void Open() => StartCoroutine(OpenCoroutine());
+        public virtual IEnumerator OpenCoroutine() {
+            gameObject.SetActive(true);
+            yield return null;
+        }
+        public virtual IEnumerator CloseCoroutine() {
+            yield return null;
+            gameObject.SetActive(false);
+        }
+        public void Update() {
+            if (Input.GetKeyDown(KeyCode.Escape)) {
+                StartCoroutine(CloseCoroutine());
             }
         }
     }

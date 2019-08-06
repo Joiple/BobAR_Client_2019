@@ -1,9 +1,8 @@
-﻿
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ARComponents;
 using CustomSceneManagement;
 using DataManagement;
+using MainScene.SearchPages;
 using Network;
 using Network.Data;
 using NormalScene;
@@ -14,6 +13,9 @@ namespace MainScene {
     public class MainSceneManager : MonoBehaviour{
         public List<Restaurant> searchResults = new List<Restaurant>();
         public GpsManager gps;
+        public RestaurantSearchPage filteringPage;
+        public ReviewSearchPage reviewPage;
+
         public void Start() {
             Key nowPos=new Key() {
                 type=KeyType.Location,
