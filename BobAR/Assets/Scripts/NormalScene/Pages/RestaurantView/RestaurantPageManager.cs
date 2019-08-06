@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace NormalScene.Pages.RestaurantView {
 
-    public class RestaruantPageManager : Page{
+    public class RestaurantPageManager : Page{
         public Image previewImage;
         public RestaurantReviewIndicator indicatorPrefab;
         public TextMeshProUGUI restaurantName,

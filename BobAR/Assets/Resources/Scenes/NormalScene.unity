@@ -120,7 +120,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &308048904
+--- !u!1 &169127792
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,8 +128,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 308048906}
-  - component: {fileID: 308048905}
+  - component: {fileID: 169127795}
+  - component: {fileID: 169127794}
+  - component: {fileID: 169127793}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -137,27 +138,46 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &308048905
+--- !u!114 &169127793
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 308048904}
+  m_GameObject: {fileID: 169127792}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f72c4f1924f44c34eaf4d2c818dca11a, type: 3}
+  m_Script: {fileID: 11500000, guid: d5ab8847d5dda1d49a3056f0c3dde01c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &308048906
+  restaurantPage: {fileID: 60756540338406989, guid: 84d25251d72b99d4fb741c4ef55ae6b9,
+    type: 3}
+  userPage: {fileID: 0}
+  reviewWritePage: {fileID: 7818784319024782810, guid: f969e105d5176f74d81204039901384e,
+    type: 3}
+--- !u!114 &169127794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169127792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1f9a8adec38cb43864b3dd99d0ee56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: {fileID: 0}
+  canBeExit: 1
+--- !u!4 &169127795
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 308048904}
+  m_GameObject: {fileID: 169127792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6830072, y: -4.8010826, z: -2.4817696}
+  m_LocalPosition: {x: 248.5, y: 511, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

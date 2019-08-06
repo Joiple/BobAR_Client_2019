@@ -16,11 +16,13 @@ namespace MainScene.SearchPages {
         public SearchLogIndicator logPrefab;
         public const string Diff = " ";
         public const int MaxLogLength = 10;
-        public static readonly string logPath = Path.Combine(Application.persistentDataPath, "Saves", "SearchLog.json");
-        public TextMeshProUGUI searchText;
+        public static string logPath;
+        public TMP_InputField searchText;
 
         public void OnEnable() {
             if (File.Exists(logPath)) {
+                logPath = Path.Combine(Application.persistentDataPath, "Saves", "SearchLog.json");
+
                 using (FileStream logFile = File.Open(logPath, FileMode.Open)) {
                     StreamReader reader = new StreamReader(logFile);
                     logs = JsonUtility.FromJson<List<SearchLog>>(reader.ReadToEnd());
