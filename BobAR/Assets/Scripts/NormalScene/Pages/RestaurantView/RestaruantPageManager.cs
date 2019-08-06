@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DataManagement;
 using Network;
+using Network.Data;
 using TMPro;
 using UnityEngine.UI;
 

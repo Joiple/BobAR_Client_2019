@@ -20,8 +20,8 @@ namespace DataManagement {
         private Dictionary<string, object> data = new Dictionary<string, object>();
 
         public bool AddItem(string key, object input) {
-            if (data.ContainsKey(key)) return false;
-            data.Add(key, input);
+            if (data.ContainsKey(key)) data[key]=input;
+            else data.Add(key, input);
 
             return true;
         }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Network;
+using Network.Data;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

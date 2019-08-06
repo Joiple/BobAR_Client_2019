@@ -35,6 +35,8 @@ namespace NormalScene {
                     Page temp = pageStack.Last.Value;
                     pageStack.RemoveLast();
                     Destroy(temp);
+                    temp = pageStack.Last.Value;
+                    temp.gameObject.SetActive(true);
                 } else {
                     CustomSceneManager.instance.LoadScene(0);
                 }
@@ -64,7 +66,9 @@ namespace NormalScene {
                     throw new Exception("잘못된 페이지타입");
             }
 
+            Page temp = pageStack.Last.Value;
             pageStack.AddLast(ret);
+            temp.gameObject.SetActive(false);
 
             return ret;
         }
