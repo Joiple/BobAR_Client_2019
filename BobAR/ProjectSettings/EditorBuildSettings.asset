@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Resources/Scenes/ReviewWriteScene.unity
     guid: bc454a9051ab43f45a8652ce566973d8
+  - enabled: 1
+    path: Assets/BobAR_1.unity
+    guid: 1f2b406a8d089a845ac150ff5d91904c
+  - enabled: 1
+    path: Assets/BobAR_2.unity
+    guid: 962e8a722b208b64fb3c051afbc8f266
   m_configObjects: {}
