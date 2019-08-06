@@ -9,7 +9,7 @@ namespace ARComponents {
         private WebCamTexture texture;
 
         public WebCamTexture Texture => texture;
-        public RawImage Renderer;
+        public RawImage camRenderer;
 
         public void Start() {
             StartCoroutine(Auth());
@@ -57,7 +57,7 @@ namespace ARComponents {
             }
 
             texture.Play();
-            Renderer.texture = texture;
+            camRenderer.texture = texture;
         }
 
         public void Reload() {
