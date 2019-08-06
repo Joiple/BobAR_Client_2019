@@ -17,7 +17,7 @@ namespace MainScene.SearchPages {
         public Transform LogList;
         public SearchLogIndicator logPrefab;
         public const string Diff = " ";
-
+        public const int MaxLogLength = 10;
         public static readonly string logPath = Path.Combine(Application.persistentDataPath, "Saves", "SearchLog.json");
         public TextMeshProUGUI searchText;
 
@@ -64,20 +64,20 @@ namespace MainScene.SearchPages {
             }
 
             logs.Sort();
-            if (logs.Count > 10) ;
-            logs.RemoveRange(9,logs.Count-1);
+            if (logs.Count > MaxLogLength) logs.RemoveRange(MaxLogLength - 1, logs.Count - 1);
 
             using (FileStream logFile = File.Open(logPath, FileMode.Create)) {
                 StreamWriter t = new StreamWriter(logFile);
                 t.Write(JsonUtility.ToJson(logs));
                 t.Close();
             }
-            Key searchKey=new Key() {
-                type=KeyType.Location,
-                sequence=searchText.text,
-                altitude=GpsManager.instance.initialAlt,
-                longitude= GpsManager.instance.initialLon,
-                latitude= GpsManager.instance.initialLat
+
+            Key searchKey = new Key() {
+                type = KeyType.Location,
+                sequence = searchText.text,
+                altitude = GpsManager.instance.initialAlt,
+                longitude = GpsManager.instance.initialLon,
+                latitude = GpsManager.instance.initialLat
             };
 
             Client<RestaurantBundle> searchClient = new Client<RestaurantBundle>(searchKey.ToString());
@@ -85,13 +85,14 @@ namespace MainScene.SearchPages {
     }
 
 
-    public struct SearchLog:IComparable {
+    public struct SearchLog : IComparable {
         public string tag,
                       time;
 
         public override string ToString() {
             return time + tag;
         }
+
         public int CompareTo(object obj) => string.CompareOrdinal(ToString(), obj.ToString());
     }
 
