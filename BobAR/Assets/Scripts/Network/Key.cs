@@ -4,7 +4,9 @@
         Location,
         User,
         Image,
+        WritingImage,
         Review,
+        WritingReview,
         Restaurant,
         Followings,
         None
@@ -16,8 +18,18 @@
         public double longitude,
                       latitude,
                       altitude;
+
+        public byte[] data;
         public static string ToString(Key k) {
-            return k.type.ToString() + NetworkConstants.Diff + k.key;
+            string ret = "";
+
+            switch (k.type) {//TODO 송신 패킷 직렬화
+                default:
+                    ret+=k.type.ToString() + NetworkConstants.Diff + k.key;
+                    
+                    break;
+            }
+            return ret;
 
         }
     }

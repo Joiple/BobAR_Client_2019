@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Network {
+namespace Network.Data {
 
     public class ReviewBundle : ILoadable {
         public List<Key> keys = new List<Key>();

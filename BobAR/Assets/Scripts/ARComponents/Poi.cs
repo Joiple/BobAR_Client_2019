@@ -1,4 +1,5 @@
 ﻿using Network;
+using Network.Data;
 using UnityEngine;
 
 namespace ARComponents {

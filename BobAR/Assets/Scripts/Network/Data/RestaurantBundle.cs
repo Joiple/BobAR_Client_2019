@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Network {
+namespace Network.Data {
     public class RestaurantBundle:ILoadable {
         public List<Key> keys=new List<Key>();
         public ILoadable Load(string input) {

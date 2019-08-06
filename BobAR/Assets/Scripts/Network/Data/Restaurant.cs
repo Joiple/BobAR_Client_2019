@@ -2,7 +2,7 @@
 using ARComponents;
 using UnityEngine;
 
-namespace Network {
+namespace Network.Data {
 
     public class Restaurant:ILoadable {
         public Key key,prevImageKey;

@@ -369,8 +369,6 @@ GameObject:
   - component: {fileID: 676823991}
   - component: {fileID: 676823990}
   - component: {fileID: 676823993}
-  - component: {fileID: 676823994}
-  - component: {fileID: 676823995}
   m_Layer: 0
   m_Name: ARHandler
   m_TagString: Untagged
@@ -403,7 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cea5755b270eae9469f0683b94844b5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraContainer: {fileID: 0}
+  cameraContainer: {fileID: 298008417}
 --- !u!4 &676823992
 Transform:
   m_ObjectHideFlags: 0
@@ -430,46 +428,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6b6e1b89fe1da42aad56849485c61a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: 6378137
+  radius: 6378137
   initialLat: 0
   initialLon: 0
   initialAlt: 0
-  ConnectionWait: 5
+  connectionWait: 5
   pois: []
-  RunningGPSFlag: 0
---- !u!114 &676823994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 676823989}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba47754bf1275a44ac688ccb17fd4f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocity: {x: 0, y: 0, z: 0}
-  acc: {x: 0, y: 0, z: 0}
-  target: {fileID: 331439359}
-  imgProcessor: {fileID: 676823995}
---- !u!114 &676823995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 676823989}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e25abe59c8a95042b0186b738f32ff2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  threshold: 0.95
-  similarity: 0
-  stopping: 1
-  test: {fileID: 0}
-  samplingSize: {x: 64, y: 36}
+  runningGpsFlag: 0
 --- !u!1 &706442844
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,6 +1002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 322657effeac89b40a50830677a4d199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gps: {fileID: 0}
 --- !u!4 &2109372245
 Transform:
   m_ObjectHideFlags: 0
