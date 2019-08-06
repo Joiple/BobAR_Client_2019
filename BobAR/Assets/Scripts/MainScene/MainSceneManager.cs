@@ -25,29 +25,6 @@ namespace MainScene {
         }
         public void ClearSearchResult() => searchResults.Clear();
 
-        public void Search(string value) {
-            //TODO 검색
-            StartCoroutine(SearchInternal(value));
-        }
-
-        public IEnumerator SearchInternal(string query) {
-            Client<RestaurantBundle> searchResult = new Client<RestaurantBundle>(query);
-
-            while (!searchResult.prepared) yield return null;
-
-            List<Client<Restaurant>> pacakges = new List<Client<Restaurant>>();
-
-            foreach (Key k in searchResult.Target.keys) {
-                pacakges.Add(new Client<Restaurant>(k.ToString()));
-            }
-
-            foreach (Client<Restaurant> t in pacakges) {
-                while (!t.prepared) yield return null;
-                searchResults.Add(t.Target);
-//                t.Target.InitializeLocator();
-            }
-        }
-
         public void ToMyPage() {
             DataStorage.instance.AddItem(DataStorage.InitialScene, PageType.UserPage);
             DataStorage.instance.AddItem(DataStorage.NextUser, DataStorage.instance.GetItem<Key>(DataStorage.MyKey));

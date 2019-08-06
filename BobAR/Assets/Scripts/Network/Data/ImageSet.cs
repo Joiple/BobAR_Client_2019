@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Network{
+namespace Network.Data{
 
     public class ImageSet : ILoadable {
         public Sprite sprite;

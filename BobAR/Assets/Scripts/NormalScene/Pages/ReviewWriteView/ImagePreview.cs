@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace NormalScene.Pages.ReviewWriteScene
+namespace NormalScene.Pages.ReviewWriteView
 {
     public class ImagePreview:MonoBehaviour
     {
