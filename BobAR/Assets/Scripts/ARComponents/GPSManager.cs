@@ -7,23 +7,23 @@ using Debug = DebugWrap.Debug;
 
 namespace ARComponents {
 
-    public class GPSManager : MonoBehaviour {
-        [NonSerialized] public static GPSManager instance;
+    public class GpsManager : MonoBehaviour {
+        [NonSerialized] public static GpsManager instance;
         private LocationService gps;
-        public float _radius = 6378137;
+        public float radius = 6378137;
         public  float initialLat, initialLon, initialAlt;
-        public float ConnectionWait = 5f;
+        public float connectionWait = 5f;
         public List<Poi> pois;
-        public bool RunningGPSFlag = false;
+        public bool runningGpsFlag = false;
         public void Awake() {
             instance = this;
         }
 
         public void Start() {
-            StartCoroutine(GPSStart());
+            StartCoroutine(GpsStart());
         }
 
-        public IEnumerator GPSStart() {
+        public IEnumerator GpsStart() {
             if (!Permission.HasUserAuthorizedPermission("android.permission.ACCESS_FINE_LOCATION"))
                 Permission.RequestUserPermission("android.permission.ACCESS_FINE_LOCATION");
 
@@ -38,7 +38,7 @@ namespace ARComponents {
             }
 
             gps.Start(1f);
-            float t = ConnectionWait;
+            float t = connectionWait;
 
             while (gps.status == LocationServiceStatus.Initializing && t > 0) {
                 t -= Time.deltaTime;
@@ -52,15 +52,15 @@ namespace ARComponents {
                 yield break;
             }
 
-            RunningGPSFlag = true;
+            runningGpsFlag = true;
             initialLat = Input.location.lastData.latitude;
             initialLon = Input.location.lastData.longitude;
 
-            yield return GPSUpdate();
+            yield return GpsUpdate();
         }
 
-        public IEnumerator GPSUpdate() {
-            while (gps.status == LocationServiceStatus.Running && RunningGPSFlag) {
+        public IEnumerator GpsUpdate() {
+            while (gps.status == LocationServiceStatus.Running && runningGpsFlag) {
                 initialLon = gps.lastData.longitude;
                 initialLat = gps.lastData.latitude;
                 initialAlt = gps.lastData.altitude;

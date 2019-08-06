@@ -15,7 +15,7 @@ namespace ARComponents {
             acc = Input.gyro.userAcceleration*Time.deltaTime;
             velocity -= acc;
 
-            if (imgProcessor.Stopping)
+            if (imgProcessor.stopping)
                 velocity = Vector3.zero;
 
             target.Translate(velocity, Space.Self);
