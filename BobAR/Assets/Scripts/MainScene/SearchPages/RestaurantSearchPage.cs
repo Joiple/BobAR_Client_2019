@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using ARComponents;
@@ -82,8 +83,13 @@ namespace MainScene.SearchPages {
 
             Client<RestaurantBundle> searchClient = new Client<RestaurantBundle>(searchKey.ToString());
         }
-    }
 
+        public override IEnumerator OpenCoroutine() {
+            yield return base.OpenCoroutine();
+            searchText.Select();
+        }
+    }
+    
 
     public struct SearchLog : IComparable {
         public string tag,

@@ -29,11 +29,15 @@ namespace MainScene.SearchPages {
             }
         }
 
-        public void Open() => StartCoroutine(OpenCoroutine());
-        public virtual IEnumerator OpenCoroutine() {
+        public void Open() {
             gameObject.SetActive(true);
+            StartCoroutine(OpenCoroutine());
+        }
+        public virtual IEnumerator OpenCoroutine() {
             yield return null;
         }
+
+        public void Close() => StartCoroutine(CloseCoroutine());
         public virtual IEnumerator CloseCoroutine() {
             yield return null;
             gameObject.SetActive(false);

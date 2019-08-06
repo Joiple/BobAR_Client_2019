@@ -27,6 +27,14 @@ namespace MainScene {
         }
         public void ClearSearchResult() => searchResults.Clear();
 
+        public void OpenFiltering() {
+            filteringPage.Open();
+            
+        }
+
+        public void OpenReviewing() {
+            reviewPage.Open();
+        }
         public void ToMyPage() {
             DataStorage.instance.AddItem(DataStorage.InitialScene, PageType.UserPage);
             DataStorage.instance.AddItem(DataStorage.NextUser, DataStorage.instance.GetItem<Key>(DataStorage.MyKey));
