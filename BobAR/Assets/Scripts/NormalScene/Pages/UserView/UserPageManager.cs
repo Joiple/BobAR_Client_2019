@@ -33,7 +33,7 @@ namespace NormalScene.Pages.UserView {
             following.text= target.followings.Count.ToString();
             follower.text = target.followers.Count.ToString();
             reviewCount.text = target.reviewIds.Count.ToString();
-            Client<ImageSet> tImg=new Client<ImageSet>(target.imageKey.ToString());
+            Client<ImageDownloadPacket> tImg=new Client<ImageDownloadPacket>(target.imageKey.ToString());
             while (!tImg.prepared) yield return null;
             profileImage.sprite = tImg.Target.sprite;
             List<Client<Review>> tReviews=new List<Client<Review>>();

@@ -32,7 +32,7 @@ namespace NormalScene.Pages.RestaurantView {
             restaurantName.text = target.name;
             address.text = target.address;
             phoneNumber.text = target.phoneNumber;
-            Client<ImageSet> prevImage = new Client<ImageSet>(target.prevImageKey.ToString());
+            Client<ImageDownloadPacket> prevImage = new Client<ImageDownloadPacket>(target.prevImageKey.ToString());
             while (!prevImage.prepared) yield return null;
             previewImage.sprite = prevImage.Target.sprite;
             List<Client<Review>> reviewClients = new List<Client<Review>>();

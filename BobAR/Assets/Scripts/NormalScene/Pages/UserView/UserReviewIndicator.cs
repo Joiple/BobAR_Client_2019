@@ -23,7 +23,7 @@ namespace NormalScene.Pages.UserView {
             while (!restaurant.prepared) yield return null;
             restaurantName.text = restaurant.Target.name;
             
-            Client<ImageSet> firstImage=new Client<ImageSet>(review.pictures[0].ToString());
+            Client<ImageDownloadPacket> firstImage=new Client<ImageDownloadPacket>(review.pictures[0].ToString());
 
             while (!firstImage.prepared) yield return null;
             profileImage.sprite = firstImage.Target.sprite;

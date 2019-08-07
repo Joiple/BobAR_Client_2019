@@ -23,7 +23,7 @@ namespace NormalScene.Pages.RestaurantView {
         }
 
         public IEnumerator InitializeInternal() {
-            Client<ImageSet> imgClient = new Client<ImageSet>(target.pictures[0].ToString());
+            Client<ImageDownloadPacket> imgClient = new Client<ImageDownloadPacket>(target.pictures[0].ToString());
             while (!imgClient.prepared) yield return null;
             thumbnailImage.sprite = imgClient.Target.sprite;
             content.text = target.content;
