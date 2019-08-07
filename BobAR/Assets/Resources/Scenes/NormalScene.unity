@@ -152,9 +152,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restaurantPage: {fileID: 60756540338406989, guid: 84d25251d72b99d4fb741c4ef55ae6b9,
     type: 3}
-  userPage: {fileID: 0}
+  userPage: {fileID: 8485380434568460455, guid: 7b229a7dfd5d2764e9349a36fd5d4856,
+    type: 3}
   reviewWritePage: {fileID: 7818784319024782810, guid: f969e105d5176f74d81204039901384e,
     type: 3}
+  reviewDetailPage: {fileID: 0}
 --- !u!114 &169127794
 MonoBehaviour:
   m_ObjectHideFlags: 0

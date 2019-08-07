@@ -599,6 +599,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7309479641998403872, guid: c47c5c1adecac5847aff721d5c3e76a8,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c47c5c1adecac5847aff721d5c3e76a8, type: 3}
 --- !u!114 &548977029 stripped
@@ -954,6 +959,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3585920400443568647, guid: 2c06c378b3f99584099de4cbe7687785,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c06c378b3f99584099de4cbe7687785, type: 3}
 --- !u!1 &951644894
@@ -1146,7 +1156,7 @@ Canvas:
   m_GameObject: {fileID: 1802364582}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 280640707}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
@@ -1509,6 +1519,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 996363911770281882, guid: 5905dc7861806784fafd404dbdfb24c9,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5905dc7861806784fafd404dbdfb24c9, type: 3}

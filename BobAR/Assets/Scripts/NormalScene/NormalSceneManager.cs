@@ -10,7 +10,8 @@ namespace NormalScene {
     public enum PageType {
         UserPage,
         RestaurantPage,
-        ReviewWritePage
+        ReviewWritePage,
+        ReviewDetailPage
     }
 
     public class NormalSceneManager : MonoBehaviour {
@@ -61,15 +62,17 @@ namespace NormalScene {
                     ret = Instantiate(prefabs.reviewWritePage);
 
                     break;
-
+                case PageType.ReviewDetailPage:
+                    ret = Instantiate(prefabs.reviewDetailPage);
+                        break;
                 default:
                     throw new Exception("잘못된 페이지타입");
             }
 
-            Page temp = pageStack.Last.Value;
+            if (pageStack.Count > 0) {
+                pageStack.Last.Value.gameObject.SetActive(false);
+            }
             pageStack.AddLast(ret);
-            temp.gameObject.SetActive(false);
-
             return ret;
         }
     }

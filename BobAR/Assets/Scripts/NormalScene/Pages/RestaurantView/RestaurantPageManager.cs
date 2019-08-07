@@ -15,8 +15,8 @@ namespace NormalScene.Pages.RestaurantView {
                                address,
                                phoneNumber;
 
-        public Restaurant target;
-        public List<Review> reviews;
+        public List<RestaurantReviewIndicator> indicators=new List<RestaurantReviewIndicator>();
+        //리뷰 추가
         public override void Initialize(NormalSceneManager controller) {
             base.Initialize(controller);
             StartCoroutine(InternalStart());
@@ -24,31 +24,21 @@ namespace NormalScene.Pages.RestaurantView {
 
         public IEnumerator InternalStart() {
             Key key=DataStorage.instance.GetItem<Key>(DataStorage.NextRestaurant);
-            Client<Restaurant> restaurantData = new Client<Restaurant>(key.ToString());
+            //TODO 가게 정보 요청
+            restaurantName.text = "가게 이름";
+            address.text = "가게 주소";
+            phoneNumber.text = "010-1111-2222";
 
-            while (!restaurantData.prepared) yield return null;
-
-            target = restaurantData.Target;
-            restaurantName.text = target.name;
-            address.text = target.address;
-            phoneNumber.text = target.phoneNumber;
-            Client<ImageDownloadPacket> prevImage = new Client<ImageDownloadPacket>(target.prevImageKey.ToString());
-            while (!prevImage.prepared) yield return null;
-            previewImage.sprite = prevImage.Target.sprite;
-            List<Client<Review>> reviewClients = new List<Client<Review>>();
-            foreach(Key k in target.reviews)
-                reviewClients.Add(new Client<Review>(k.ToString()));
-
-            foreach (Client<Review> t in reviewClients) {
-                while (!t.prepared) yield return null;
-                AddReview(t.Target);
+            for (int i = 0; i < 8; i++) {
+                AddReview();
             }
+            yield return null;
         }
-
-        private void AddReview(Review review) {
-            reviews.Add(review);
-            RestaurantReviewIndicator temp=Instantiate(indicatorPrefab);//TODO 레이아웃 포지션 지정
-            temp.Initialize(review);
+        
+        private void AddReview() {
+            
+            RestaurantReviewIndicator temp=Instantiate(indicatorPrefab).Initialize();//TODO 레이아웃 포지션 지정
+            indicators.Add(temp);
         }
 
         public void WriteReview() {

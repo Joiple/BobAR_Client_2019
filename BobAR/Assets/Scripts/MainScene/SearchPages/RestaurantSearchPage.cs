@@ -51,6 +51,10 @@ namespace MainScene.SearchPages {
         public string tag,
                       time;
 
+        public static SearchLog dummy = new SearchLog() {
+            tag = "태그_예제",
+            time = "12.31"
+        };
         public override string ToString() {
             return time + tag;
         }
