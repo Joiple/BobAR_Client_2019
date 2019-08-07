@@ -914,5 +914,15 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1478194655593229362, guid: 26bb02fac71ea3c4ebc581f04d198354,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464756313435798377, guid: 26bb02fac71ea3c4ebc581f04d198354,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26bb02fac71ea3c4ebc581f04d198354, type: 3}

@@ -2599,5 +2599,56 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2411543134004832432, guid: 0689c91078200924cbc04d8acd1364b0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 38.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411543134004832432, guid: 0689c91078200924cbc04d8acd1364b0,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 189.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 790808962482536688, guid: 0689c91078200924cbc04d8acd1364b0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 54.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 790808962482536688, guid: 0689c91078200924cbc04d8acd1364b0,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 902.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 790808962482536688, guid: 0689c91078200924cbc04d8acd1364b0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.0001955
+      objectReference: {fileID: 0}
+    - target: {fileID: 790808962482536688, guid: 0689c91078200924cbc04d8acd1364b0,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 192.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232255368909158462, guid: 0689c91078200924cbc04d8acd1364b0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 79dd260e77c6f124780bd606d6b23efb,
+        type: 3}
+    - target: {fileID: 2624346351534677450, guid: 0689c91078200924cbc04d8acd1364b0,
+        type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 2624346351534677450, guid: 0689c91078200924cbc04d8acd1364b0,
+        type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 2624346351534677450, guid: 0689c91078200924cbc04d8acd1364b0,
+        type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 0.78431374
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0689c91078200924cbc04d8acd1364b0, type: 3}
