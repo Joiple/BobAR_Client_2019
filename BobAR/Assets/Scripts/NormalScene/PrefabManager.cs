@@ -6,7 +6,8 @@ namespace NormalScene {
     public class PrefabManager : MonoBehaviour {
         public Page restaurantPage,
                           userPage,
-                          reviewWritePage;
+                          reviewWritePage,
+                          reviewDetailPage;
     }
 
 }

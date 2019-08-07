@@ -15,19 +15,23 @@ namespace NormalScene.Pages.RestaurantView {
 
         public Image followedIndicator;
 
-        public Review target;
-        public void Initialize(Review review) {
-            target = review;
+        public string id;
+        public RestaurantReviewIndicator Initialize(string id="") {
+            this.id = id;
             StartCoroutine(InitializeInternal());
-
+            return this;
         }
 
         public IEnumerator InitializeInternal() {
-            Client<ImageSet> imgClient = new Client<ImageSet>(target.pictures[0].ToString());
-            while (!imgClient.prepared) yield return null;
-            thumbnailImage.sprite = imgClient.Target.sprite;
-            content.text = target.content;
-            following.text = target.followers.Count.ToString();
+            string contentString = "";
+
+            for (int i = 0; i < 100; i++) {
+                contentString += "내용";
+            }
+
+            content.text = contentString;
+
+            yield return null;
         }
     }
 }

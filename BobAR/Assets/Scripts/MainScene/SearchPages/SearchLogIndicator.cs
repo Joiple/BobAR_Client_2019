@@ -7,6 +7,9 @@ namespace MainScene.SearchPages {
         public TextMeshProUGUI log,time;
         public string logTag;
 
+        public SearchLogIndicator Initialize() {
+            return Initialize(SearchLog.dummy);
+        }
         public SearchLogIndicator Initialize(SearchLog input) {
             logTag = input.tag;
             log.text = logTag;

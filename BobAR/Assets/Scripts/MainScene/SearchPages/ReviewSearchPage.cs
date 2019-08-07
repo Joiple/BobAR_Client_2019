@@ -15,8 +15,8 @@ namespace MainScene.SearchPages {
             indicators.Clear();
             yield return base.SearchInternal(query);
 
-            foreach (Restaurant t in searchResults) {
-                ReviewSearchIndicator temp = Instantiate(prefab, restaurantListTransform).Initialize(t);
+            for(int i=0;i<8;i++) {
+                ReviewSearchIndicator temp = Instantiate(prefab, restaurantListTransform).Initialize();
                 indicators.Add(temp);
             }
         }
