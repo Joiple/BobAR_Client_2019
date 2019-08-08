@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+#if ERR
 public class new : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -16,3 +16,4 @@ public class new : MonoBehaviour
         
     }
 }
+#endif
