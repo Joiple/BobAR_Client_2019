@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ab8847d5dda1d49a3056f0c3dde01c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restaurantPage: {fileID: 60756540338406989, guid: 84d25251d72b99d4fb741c4ef55ae6b9,
+  restaurantPage: {fileID: 1930640764800227481, guid: 84d25251d72b99d4fb741c4ef55ae6b9,
     type: 3}
   userPage: {fileID: 8485380434568460455, guid: 7b229a7dfd5d2764e9349a36fd5d4856,
     type: 3}

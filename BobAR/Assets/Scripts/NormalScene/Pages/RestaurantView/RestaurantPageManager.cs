@@ -41,8 +41,9 @@ namespace NormalScene.Pages.RestaurantView {
             indicators.Add(temp);
         }
 
-        public void WriteReview() {
-            //TODO 리뷰쓰기 포개기
+        public void WriteReview()
+        {
+            manager.AddPage(PageType.ReviewWritePage);
         }
     }
 
