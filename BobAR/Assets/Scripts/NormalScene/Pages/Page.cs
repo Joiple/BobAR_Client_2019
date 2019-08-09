@@ -3,10 +3,15 @@
 namespace NormalScene.Pages {
 
     public class Page : MonoBehaviour {
-        private NormalSceneManager manager;
+        internal NormalSceneManager manager;
 
         public virtual void Initialize(NormalSceneManager controller) {
             this.manager = controller;
+        }
+
+        public virtual void Exit()
+        {
+            manager.Exit();
         }
     }
 

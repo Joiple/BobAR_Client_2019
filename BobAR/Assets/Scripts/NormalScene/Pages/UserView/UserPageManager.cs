@@ -1,8 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using DataManagement;
-using Network;
-using Network.Data;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,7 +30,7 @@ namespace NormalScene.Pages.UserView {
             foreach(UserReviewIndicator t in reviewIndicators)Destroy(t.gameObject);
             reviewIndicators.Clear();
             for (int i = 0; i < 10; i++) {
-                UserReviewIndicator temp = Instantiate(userReviewInidicatorPrefab, reviewGroup);
+                UserReviewIndicator temp = Instantiate(userReviewInidicatorPrefab, reviewGroup).Initialize(this);
                 reviewIndicators.Add(temp);
             }
 

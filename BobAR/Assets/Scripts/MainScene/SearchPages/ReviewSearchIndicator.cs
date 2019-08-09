@@ -1,6 +1,5 @@
 ﻿using CustomSceneManagement;
 using DataManagement;
-using Network.Data;
 using NormalScene;
 using TMPro;
 using UnityEngine;
@@ -22,7 +21,7 @@ namespace MainScene.SearchPages {
         }
 
         public void Clicked() {
-            DataStorage.instance.AddItem(DataStorage.InitialScene, PageType.ReviewWritePage);
+            DataStorage.instance.AddItem(DataStorageKeyset.InitialScene, PageType.ReviewWritePage);
             CustomSceneManager.instance.LoadScene(1);
 
         }

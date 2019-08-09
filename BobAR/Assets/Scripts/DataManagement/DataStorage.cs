@@ -3,30 +3,31 @@ using UnityEngine;
 
 namespace DataManagement {
 
+    public enum DataStorageKeyset {
+        NextUser,
+        NextRestaurant,
+        NextReview,
+        InitialScene,
+        MyKey
+    }
     public class DataStorage : MonoBehaviour {
         public static DataStorage instance;
-
-        public const string NextUser = "NextUser",
-                            NextRestaurant = "NextRestaurant",
-                            NextReview = "NextReview",
-                            InitialScene = "InitialScene",
-                            MyKey = "MyKey";
 
         private void Start() {
             if (instance != null) Destroy(instance);
             instance = this;
         }
 
-        private Dictionary<string, object> data = new Dictionary<string, object>();
+        private Dictionary<DataStorageKeyset, object> data = new Dictionary<DataStorageKeyset, object>();
 
-        public bool AddItem(string key, object input) {
+        public bool AddItem(DataStorageKeyset key, object input) {
             if (data.ContainsKey(key)) data[key]=input;
             else data.Add(key, input);
 
             return true;
         }
 
-        public T GetItem<T>(string key) {
+        public T GetItem<T>(DataStorageKeyset key) {
             if (!data.ContainsKey(key)) return default(T);
 
             return data[key] is T ? (T) data[key] : default(T);
@@ -36,7 +37,7 @@ namespace DataManagement {
             data.Clear();
         }
 
-        public bool Remove(string key) {
+        public bool Remove(DataStorageKeyset key) {
             if (!data.ContainsKey(key)) return false;
             data.Remove(key);
 

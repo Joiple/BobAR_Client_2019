@@ -30,7 +30,7 @@ namespace ARComponents {
         }
 
         public IEnumerator ResetTex() {
-            if (texture != null) yield break;
+            if (texture != null) Destroy(texture);
 
             yield return new WaitForEndOfFrame();
             WebCamDevice[] dev = WebCamTexture.devices;

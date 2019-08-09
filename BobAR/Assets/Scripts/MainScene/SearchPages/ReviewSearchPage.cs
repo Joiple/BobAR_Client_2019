@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Network.Data;
+using TMPro;
 using UnityEngine;
 
 namespace MainScene.SearchPages {
@@ -9,7 +9,10 @@ namespace MainScene.SearchPages {
         public Transform restaurantListTransform;
         public ReviewSearchIndicator prefab; 
         public List<ReviewSearchIndicator> indicators=new List<ReviewSearchIndicator>();
-
+        public TextMeshProUGUI searchText;
+        public void Search() {
+            StartCoroutine(SearchInternal(searchText.text));
+        }
         public override IEnumerator SearchInternal(string query) {
             foreach (ReviewSearchIndicator t in indicators) Destroy(t);
             indicators.Clear();

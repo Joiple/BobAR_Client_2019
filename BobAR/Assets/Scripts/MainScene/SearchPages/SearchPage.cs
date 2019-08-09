@@ -1,7 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using Network;
-using Network.Data;
 using UnityEngine;
 
 namespace MainScene.SearchPages {
