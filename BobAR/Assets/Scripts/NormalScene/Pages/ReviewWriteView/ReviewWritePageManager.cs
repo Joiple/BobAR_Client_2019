@@ -1,9 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using DataManagement;
-using Network;
-using Network.Data;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -57,7 +54,7 @@ namespace NormalScene.Pages.ReviewWriteView
         public override void Initialize(NormalSceneManager controller)
         {
             base.Initialize(controller);
-            restaurantName.text=DataStorage.instance.GetItem<string>("RestaurantName");
+            restaurantName.text = "가게 이름";
         }
 
         public void WriteReview()
@@ -76,6 +73,11 @@ namespace NormalScene.Pages.ReviewWriteView
         public IEnumerator WriteReviewInternal() {
             yield return null;
             
+        }
+
+        public void Click() {
+            //TODO 리뷰송신
+            Exit();
         }
     }
 }

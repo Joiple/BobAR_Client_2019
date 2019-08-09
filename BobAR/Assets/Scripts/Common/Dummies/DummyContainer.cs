@@ -7,10 +7,7 @@ using System.Text;
 using System.Threading;
 using Network;
 using Network.Data;
-using UnityEditor;
-using UnityEditorInternal;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Common.Dummies {
 

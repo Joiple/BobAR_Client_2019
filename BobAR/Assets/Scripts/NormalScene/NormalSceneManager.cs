@@ -26,7 +26,7 @@ namespace NormalScene
         public void Start()
         {
             prefabs = GetComponent<PrefabManager>();
-            PageType initialType = DataStorage.instance.GetItem<PageType>(DataStorage.InitialScene);
+            PageType initialType = DataStorage.instance.GetItem<PageType>(DataStorageKeyset.InitialScene);
             AddPage(initialType).Initialize(this);
         }
 

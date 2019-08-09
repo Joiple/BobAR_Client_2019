@@ -30,30 +30,6 @@ namespace MainScene {
         }
 
         public void RefreshSearch() {
-            StartCoroutine(RefreshAsync());
-        }
-
-        public IEnumerator RefreshAsync() {
-            if (filteringPage.searchText.text.Length == 0) {
-                Client<MainRestaurantsPacket> client = new Client<MainRestaurantsPacket>(MainRestaurantsPacket.ParsePacket(), false);
-
-                while (!client.prepared) yield return null;
-
-                searchResults = client.Target;
-
-                RefreshRestaurants();
-            } else {
-                Client<SearchRestaurantPacket> client = new Client<SearchRestaurantPacket>(SearchRestaurantPacket.ParsePacket(filteringPage.searchText.text), false);
-
-                while (!client.prepared) yield return null;
-
-                searchResults = client.Target;
-
-                RefreshRestaurants();
-            }
-        }
-
-        private void RefreshRestaurants() {
             StartCoroutine(RefreshRestaurantAsync());
         }
 
@@ -86,14 +62,14 @@ namespace MainScene {
         }
 
         public void ToMyPage() {
-            DataStorage.instance.AddItem(DataStorage.InitialScene, PageType.UserPage);
-            DataStorage.instance.AddItem(DataStorage.NextUser, DataStorage.instance.GetItem<Key>(DataStorage.MyKey));
+            DataStorage.instance.AddItem(DataStorageKeyset.InitialScene, PageType.UserPage);
+            DataStorage.instance.AddItem(DataStorageKeyset.NextUser, DataStorage.instance.GetItem<Key>(DataStorageKeyset.MyKey));
             CustomSceneManager.instance.LoadScene(1);
         }
 
         public void ToRestaurantPage(Key key) {
-            DataStorage.instance.AddItem(DataStorage.InitialScene, PageType.RestaurantPage);
-            DataStorage.instance.AddItem(DataStorage.NextRestaurant, key);
+            DataStorage.instance.AddItem(DataStorageKeyset.InitialScene, PageType.RestaurantPage);
+            DataStorage.instance.AddItem(DataStorageKeyset.NextRestaurant, key);
             CustomSceneManager.instance.LoadScene(1);
         }
     }

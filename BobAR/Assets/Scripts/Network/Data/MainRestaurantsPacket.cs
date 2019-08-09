@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Network.Data {
+﻿namespace Network.Data {
 
     public class MainRestaurantsPacket : SearchRestaurantPacket {
         public new const int Code=1;
