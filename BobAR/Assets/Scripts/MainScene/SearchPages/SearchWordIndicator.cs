@@ -10,7 +10,6 @@ namespace MainScene.SearchPages {
         public string logTag;
 
         public SearchWordIndicator Initialize(RestaurantSearchPage manager) {
-            this.manager = manager;
             return Initialize(manager,SearchLog.dummy);
         }
 
@@ -22,6 +21,7 @@ namespace MainScene.SearchPages {
             return this;
         }
         public SearchWordIndicator Initialize(RestaurantSearchPage manager,SearchLog input) {
+            this.manager = manager;
             logTag = input.tag;
             log.text = logTag;
             time.text = input.time.ToString();//TODO 포맷잡아주기

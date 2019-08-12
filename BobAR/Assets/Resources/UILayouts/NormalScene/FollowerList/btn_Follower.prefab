@@ -118,7 +118,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 901706236368514547}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3504463901874753862}
+        m_MethodName: FollowClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &3480352589022255744
@@ -132,6 +143,7 @@ GameObject:
   - component: {fileID: 6324930518272021672}
   - component: {fileID: 8131434487989110758}
   - component: {fileID: 5724180196469174703}
+  - component: {fileID: 3504463901874753862}
   m_Layer: 5
   m_Name: btn_Follower
   m_TagString: Untagged
@@ -196,6 +208,21 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &3504463901874753862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3480352589022255744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23985a584e860ca459a1b031087a0394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nickName: {fileID: 4611696068192282218}
+  reviewNumber: {fileID: 8119111318922141554}
+  profileImage: {fileID: 8440479279331930231}
 --- !u!1 &3833579697590406402
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,7 +418,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1643133785007746899}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3504463901874753862}
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &4518293416784549508

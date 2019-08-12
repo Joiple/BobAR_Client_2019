@@ -158,7 +158,8 @@ MonoBehaviour:
     type: 3}
   reviewDetailPage: {fileID: 7417040714837458652, guid: 243024650e273484eb70c9c85dee5563,
     type: 3}
-  followerPage: {fileID: 0}
+  followerPage: {fileID: 4974084586293977920, guid: 5b14badb19113eb4a8b0759587b04ab1,
+    type: 3}
 --- !u!114 &169127794
 MonoBehaviour:
   m_ObjectHideFlags: 0

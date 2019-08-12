@@ -39,5 +39,9 @@ namespace NormalScene.Pages.RestaurantView {
             DataStorage.instance.AddItem(DataStorageKeyset.NextReview, id);
             manager.manager.AddPage(PageType.ReviewDetailPage);
         }
+
+        public void Follow() {
+
+        }
     }
 }
