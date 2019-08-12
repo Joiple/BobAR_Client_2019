@@ -13,7 +13,8 @@ namespace NormalScene
         UserPage,
         RestaurantPage,
         ReviewWritePage,
-        ReviewDetailPage
+        ReviewDetailPage,
+        FollowerPage
     }
 
     public class NormalSceneManager : MonoBehaviour
@@ -45,7 +46,7 @@ namespace NormalScene
             {
                 Page temp = pageStack.Last.Value;
                 pageStack.RemoveLast();
-                Destroy(temp);
+                Destroy(temp.gameObject);
                 temp = pageStack.Last.Value;
                 temp.gameObject.SetActive(true);
             }
@@ -62,21 +63,25 @@ namespace NormalScene
             switch (type)
             {
                 case PageType.UserPage:
-                    ret = Instantiate(prefabs.userPage);
+                    ret = Instantiate(prefabs.userPage).Initialize(this);
 
                     break;
 
                 case PageType.RestaurantPage:
-                    ret = Instantiate(prefabs.restaurantPage);
+                    ret = Instantiate(prefabs.restaurantPage).Initialize(this);
 
                     break;
 
                 case PageType.ReviewWritePage:
-                    ret = Instantiate(prefabs.reviewWritePage);
+                    ret = Instantiate(prefabs.reviewWritePage).Initialize(this);
 
                     break;
                 case PageType.ReviewDetailPage:
-                    ret = Instantiate(prefabs.reviewDetailPage);
+                    ret = Instantiate(prefabs.reviewDetailPage).Initialize(this);
+                    break;
+                case PageType.FollowerPage:
+                    ret = Instantiate(prefabs.followerPage).Initialize(this);
+
                     break;
                 default:
                     throw new Exception("잘못된 페이지타입");

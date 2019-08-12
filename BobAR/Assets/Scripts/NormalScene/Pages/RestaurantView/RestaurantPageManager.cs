@@ -16,9 +16,11 @@ namespace NormalScene.Pages.RestaurantView {
 
         public List<RestaurantReviewIndicator> indicators=new List<RestaurantReviewIndicator>();
         //리뷰 추가
-        public override void Initialize(NormalSceneManager controller) {
+        public override Page Initialize(NormalSceneManager controller) {
             base.Initialize(controller);
             StartCoroutine(InternalStart());
+
+            return this;
         }
 
         public IEnumerator InternalStart() {

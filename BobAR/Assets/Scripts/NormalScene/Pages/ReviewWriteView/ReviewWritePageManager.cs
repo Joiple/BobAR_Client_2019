@@ -66,10 +66,12 @@ namespace NormalScene.Pages.ReviewWriteView
             efficiencyValue.text = efficiency+ "점";
         }
 
-        public override void Initialize(NormalSceneManager controller)
+        public override Page Initialize(NormalSceneManager controller)
         {
             base.Initialize(controller);
             restaurantName.text = "가게 이름";
+
+            return this;
         }
 
         public void WriteReview()
