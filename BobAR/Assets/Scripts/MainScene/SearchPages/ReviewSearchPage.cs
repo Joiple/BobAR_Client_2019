@@ -9,7 +9,7 @@ namespace MainScene.SearchPages {
         public Transform restaurantListTransform;
         public ReviewSearchIndicator prefab; 
         public List<ReviewSearchIndicator> indicators=new List<ReviewSearchIndicator>();
-        public TextMeshProUGUI searchText;
+        public TMP_InputField searchText;
         public void Search() {
             StartCoroutine(SearchInternal(searchText.text));
         }
