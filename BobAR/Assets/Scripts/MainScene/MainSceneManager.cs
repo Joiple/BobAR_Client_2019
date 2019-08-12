@@ -7,6 +7,7 @@ using MainScene.SearchPages;
 using Network;
 using Network.Data;
 using NormalScene;
+using TMPro;
 using UnityEngine;
 
 namespace MainScene {
@@ -19,7 +20,7 @@ namespace MainScene {
         public Poi poiPrefab;
         public Transform poiTransform;
         public List<Poi> pois;
-
+        public TMP_InputField searchText;
         public void Start() {
             Key nowPos = new Key() {
                 type = KeyType.Location,
@@ -40,16 +41,16 @@ namespace MainScene {
                 }
 
             pois = new List<Poi>();
-
+            searchText.text = filteringPage.searchText.text;
+            //TODO 정보 수신
+            
             for (int i = 0; i < searchResults.restaurantNum; i++) {
-                Client<ImageDownloadPacket> imageClient=new Client<ImageDownloadPacket>(ImageDownloadPacket.ParsePacket(searchResults.imageFileIds[i]),true);
-
-                while (!imageClient.prepared) yield return null;
-
+                
                 Poi temp = Instantiate(poiPrefab, poiTransform);
-                temp.thumbnail.sprite= Sprite.Create(imageClient.Target.tex,temp.thumbnail.GetPixelAdjustedRect(),Vector3.one/2);
-
+                pois.Add(temp);
             }
+
+            yield return null;
         }
 
 

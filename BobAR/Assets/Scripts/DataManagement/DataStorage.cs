@@ -8,7 +8,8 @@ namespace DataManagement {
         NextRestaurant,
         NextReview,
         InitialScene,
-        MyKey
+        MyKey,
+        FollowStatus
     }
     public class DataStorage : MonoBehaviour {
         public static DataStorage instance;

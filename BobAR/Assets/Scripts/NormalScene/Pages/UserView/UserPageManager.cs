@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DataManagement;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,6 +36,19 @@ namespace NormalScene.Pages.UserView {
             }
 
             yield return null;
+        }
+
+        public void OpenFollower() {
+            
+            DataStorage.instance.AddItem(DataStorageKeyset.FollowStatus, true);
+            DataStorage.instance.AddItem(DataStorageKeyset.NextUser, targetId);
+            manager.AddPage(PageType.FollowerPage);
+        }
+
+        public void OpenFollowing() {
+            DataStorage.instance.AddItem(DataStorageKeyset.FollowStatus, false);
+            DataStorage.instance.AddItem(DataStorageKeyset.NextUser, targetId);
+            manager.AddPage(PageType.FollowerPage);
         }
     }
 
