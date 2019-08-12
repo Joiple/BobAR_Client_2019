@@ -13,42 +13,57 @@ namespace NormalScene.Pages.ReviewWriteView
         public TMP_InputField contentField;
         public List<ImagePreview> images;
         public Sprite GrayStar, GoldStar;
-        public Image[] StarInputs;
-        public Image[,] Stars=new Image[5,5];
+
+        public Image[] tasteStars = new Image[5],
+                       clearanceStars= new Image[5],
+                       kindnessStars = new Image[5],
+                       atmosphereStars= new Image[5],
+                       efficiencyStars= new Image[5];
         public int taste,
             clearance,
             kindness,
             atmosphere,
             efficiency;
 
+        public TextMeshProUGUI tasteValue,
+                               clearanceValue,
+                               kindnessValue,
+                               atmosphereValue,
+                               efficiencyValue;
+
         public void SetTaste(int val)
         {
             taste = val;
-            for (int i = 0; i < 5; i++) Stars[0, i].sprite = i <= val ? GoldStar : GrayStar;
+            for (int i = 0; i < 5; i++) tasteStars[i].sprite = i <= val ? GoldStar : GrayStar;
+            tasteValue.text = taste + "점";
         }
 
         public void SetClearance(int val)
         {
             clearance = val;
-            for (int i = 0; i < 5; i++) Stars[1, i].sprite = i <= val ? GoldStar : GrayStar;
+            for (int i = 0; i < 5; i++) clearanceStars[i].sprite = i <= val ? GoldStar : GrayStar;
+            clearanceValue.text = clearance+ "점";
         }
 
         public void SetKindness(int val)
         {
             kindness = val;
-            for (int i = 0; i < 5; i++) Stars[2, i].sprite = i <= val ? GoldStar : GrayStar;
+            for (int i = 0; i < 5; i++) kindnessStars[i].sprite = i <= val ? GoldStar : GrayStar;
+            kindnessValue.text = kindness+"점";
         }
 
         public void SetAtmosphere(int val)
         {
             atmosphere = val;
-            for (int i = 0; i < 5; i++) Stars[3, i].sprite = i <= val ? GoldStar : GrayStar;
+            for (int i = 0; i < 5; i++) atmosphereStars[ i].sprite = i <= val ? GoldStar : GrayStar;
+            atmosphereValue.text = atmosphere+ "점";
         }
 
         public void SetEfficiency(int val)
         {
             efficiency = val;
-            for (int i = 0; i < 5; i++) Stars[4, i].sprite = i <= val ? GoldStar : GrayStar;
+            for (int i = 0; i < 5; i++) efficiencyStars[ i].sprite = i <= val ? GoldStar : GrayStar;
+            efficiencyValue.text = efficiency+ "점";
         }
 
         public override void Initialize(NormalSceneManager controller)
@@ -60,13 +75,6 @@ namespace NormalScene.Pages.ReviewWriteView
         public void WriteReview()
         {
             int count = 0;
-            for (int i = 0; i < 5; i++)
-            {
-                for (int j = 0; j < 5; j++)
-                {
-                    Stars[i, j] = StarInputs[count++];
-                }
-            }
             StartCoroutine(WriteReviewInternal());
         }
 

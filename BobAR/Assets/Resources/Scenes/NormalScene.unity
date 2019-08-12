@@ -150,13 +150,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ab8847d5dda1d49a3056f0c3dde01c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restaurantPage: {fileID: 1930640764800227481, guid: 84d25251d72b99d4fb741c4ef55ae6b9,
+  restaurantPage: {fileID: 8455661742703957694, guid: 4ef6120e657571d428d403e9b94f1fc6,
     type: 3}
-  userPage: {fileID: 8485380434568460455, guid: 7b229a7dfd5d2764e9349a36fd5d4856,
+  userPage: {fileID: 4362261707696032944, guid: 9de4565b21cdbe6449067e6534028d6a,
     type: 3}
-  reviewWritePage: {fileID: 1621115764843922643, guid: f969e105d5176f74d81204039901384e,
+  reviewWritePage: {fileID: 3050599558276580475, guid: e49e73ce0b5d70c46bf1665d46ce4715,
     type: 3}
-  reviewDetailPage: {fileID: 0}
+  reviewDetailPage: {fileID: 7417040714837458652, guid: 243024650e273484eb70c9c85dee5563,
+    type: 3}
+  followerPage: {fileID: 0}
 --- !u!114 &169127794
 MonoBehaviour:
   m_ObjectHideFlags: 0
