@@ -27,7 +27,7 @@ namespace NormalScene.Pages.FollowerView {
             //TODO 로딩
 
             nickName.text = "다른사람이름";
-            reviewNumber.text = string.Format("리뷰 %d개", 4);
+            reviewNumber.text = string.Format("리뷰 {0}개", 4);
         }
 
         public void FollowClicked() {
