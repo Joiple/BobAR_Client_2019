@@ -639,6 +639,7 @@ GameObject:
   - component: {fileID: 3837627376001630736}
   - component: {fileID: 4291829013184255666}
   - component: {fileID: 5093440937100725679}
+  - component: {fileID: 4974084586293977920}
   m_Layer: 5
   m_Name: Follower_Following_Page
   m_TagString: Untagged
@@ -726,6 +727,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4974084586293977920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4644300702853453313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1afa9fc7a476e4d438c9f06beca5f1cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listTransform: {fileID: 9092360660704414318}
+  prefab: {fileID: 3504463901874753862, guid: e204aa28a3c1da547b2e89bfa09d4d03, type: 3}
+  indicators: []
 --- !u!1 &4781885210542251181
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,7 +1297,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3194444419146440057}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4974084586293977920}
+        m_MethodName: Exit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &6891238828007391543

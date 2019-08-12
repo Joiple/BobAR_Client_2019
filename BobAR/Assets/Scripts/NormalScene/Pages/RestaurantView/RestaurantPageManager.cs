@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DataManagement;
 using Network;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace NormalScene.Pages.RestaurantView {
@@ -13,6 +14,8 @@ namespace NormalScene.Pages.RestaurantView {
         public TextMeshProUGUI restaurantName,
                                address,
                                phoneNumber;
+
+        public Transform listTransform;
 
         public List<RestaurantReviewIndicator> indicators=new List<RestaurantReviewIndicator>();
         //리뷰 추가
@@ -38,7 +41,7 @@ namespace NormalScene.Pages.RestaurantView {
         
         private void AddReview(string id) {
             
-            RestaurantReviewIndicator temp=Instantiate(indicatorPrefab).Initialize(this,id);//TODO 레이아웃 포지션 지정
+            RestaurantReviewIndicator temp=Instantiate(indicatorPrefab,listTransform).Initialize(this,id);//TODO 레이아웃 포지션 지정
             indicators.Add(temp);
         }
 

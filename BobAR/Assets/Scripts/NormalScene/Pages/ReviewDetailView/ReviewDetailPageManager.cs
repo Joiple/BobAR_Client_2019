@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using DataManagement;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -36,6 +37,10 @@ namespace NormalScene.Pages.ReviewDetailView {
             return this;
         }
 
+        public void ClickImage() {
+            DataStorage.instance.AddItem(DataStorageKeyset.NextRestaurant, "가게id");
+            manager.AddPage(PageType.RestaurantPage);
+        }
         private IEnumerator InitializeInternal() {
             //TODO 리뷰 정보 수신
             thumbnailImage.sprite = null;
