@@ -1,6 +1,5 @@
 ﻿using System.Collections;
-using Network;
-using Network.Data;
+using DataManagement;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,27 +7,25 @@ using UnityEngine.UI;
 namespace NormalScene.Pages.UserView {
 
     public class UserReviewIndicator : MonoBehaviour {
+        public UserPageManager manager;
         public Image profileImage;
         public TextMeshProUGUI restaurantName;
-        public Review review;
-        public UserReviewIndicator Initialize(Review tR) {
-            review = tR;
+        public string id;
+        public UserReviewIndicator Initialize(UserPageManager manager,string inputId="") {
+            this.manager = manager;
+            id=inputId;
             StartCoroutine(LoadInternal());
             return this;
         }
 
         private IEnumerator LoadInternal() {
-            Client<Restaurant> restaurant=new Client<Restaurant>(review.restaurant.ToString());
+            restaurantName.text = "식당 이름";
+            yield return null;
+        }
 
-            while (!restaurant.prepared) yield return null;
-            restaurantName.text = restaurant.Target.name;
-            
-            Client<ImageSet> firstImage=new Client<ImageSet>(review.pictures[0].ToString());
-
-            while (!firstImage.prepared) yield return null;
-            profileImage.sprite = firstImage.Target.sprite;
-
-
+        public void Click() {
+            DataStorage.instance.AddItem(DataStorageKeyset.NextReview, id);
+            manager.manager.AddPage(PageType.ReviewDetailPage);
         }
     }
 

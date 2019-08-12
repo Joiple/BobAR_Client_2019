@@ -19,7 +19,6 @@ namespace CustomSceneManagement {
         /// </summary>
         public void Awake() {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
 
         /// <summary>
@@ -66,6 +65,7 @@ namespace CustomSceneManagement {
             Debug.Log(scenes[startingSceneIndex]!=null);
             StartCoroutine(LoadSceneWithoutLoading(scenes[startingSceneIndex]));
             Debug.Log("Loading Started");
+            DontDestroyOnLoad(gameObject);
         }
 
         /// <summary>

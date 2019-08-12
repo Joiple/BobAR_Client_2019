@@ -1,6 +1,5 @@
 ﻿using System.Collections;
-using Network;
-using Network.Data;
+using DataManagement;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,25 +8,36 @@ namespace NormalScene.Pages.RestaurantView {
 
     public class RestaurantReviewIndicator :MonoBehaviour {
         public Image thumbnailImage;
-
+        public RestaurantPageManager manager;
         public TextMeshProUGUI content,
                                following;
 
         public Image followedIndicator;
 
-        public Review target;
-        public void Initialize(Review review) {
-            target = review;
+        public string id;
+        public RestaurantReviewIndicator Initialize(RestaurantPageManager restaurantPageManager, string id = "") {
+            manager = restaurantPageManager;
+            this.id = id;
             StartCoroutine(InitializeInternal());
-
+            return this;
         }
 
         public IEnumerator InitializeInternal() {
-            Client<ImageSet> imgClient = new Client<ImageSet>(target.pictures[0].ToString());
-            while (!imgClient.prepared) yield return null;
-            thumbnailImage.sprite = imgClient.Target.sprite;
-            content.text = target.content;
-            following.text = target.followers.Count.ToString();
+            //TODO 리뷰 내용 수신
+            string contentString = "";
+
+            for (int i = 0; i < 100; i++) {
+                contentString += "내용";
+            }
+
+            content.text = contentString;
+
+            yield return null;
+        }
+
+        public void Click() {
+            DataStorage.instance.AddItem(DataStorageKeyset.NextReview, id);
+            manager.manager.AddPage(PageType.ReviewDetailPage);
         }
     }
 }

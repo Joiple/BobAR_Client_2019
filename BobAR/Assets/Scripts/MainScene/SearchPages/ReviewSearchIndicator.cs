@@ -1,6 +1,5 @@
 ﻿using CustomSceneManagement;
 using DataManagement;
-using Network.Data;
 using NormalScene;
 using TMPro;
 using UnityEngine;
@@ -8,20 +7,21 @@ using UnityEngine;
 namespace MainScene.SearchPages {
 
     public class ReviewSearchIndicator : MonoBehaviour {
-        public Restaurant target;
 
         public TextMeshProUGUI restaurantName,
                                restaurantAddress;
-        public ReviewSearchIndicator Initialize(Restaurant input) {
-            target = input;
-            restaurantName.text = target.name;
-            restaurantAddress.text = target.address;
+
+        public string restaurantId;
+        public ReviewSearchIndicator Initialize(string id="",string name="식당 이름",string address="식당 주소") {
+            restaurantId = id;
+            this.restaurantName.text = name;
+            this.restaurantAddress.text = address;
 
             return this;
         }
 
         public void Clicked() {
-            DataStorage.instance.AddItem(DataStorage.InitialScene, PageType.ReviewWritePage);
+            DataStorage.instance.AddItem(DataStorageKeyset.InitialScene, PageType.ReviewWritePage);
             CustomSceneManager.instance.LoadScene(1);
 
         }

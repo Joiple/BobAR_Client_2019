@@ -6,24 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Resources/UILayouts/Scenes/SceneManager.unity
+    path: Assets/Resources/Scenes/SceneManager.unity
     guid: 59bb609e0ba63e54eb082ee341ba6ab7
   - enabled: 1
-    path: Assets/Resources/UILayouts/Scenes/MainScene.unity
+    path: Assets/Resources/Scenes/MainScene.unity
     guid: fe4d2de71f0c2bc4196d5a56e51ce770
   - enabled: 1
-    path: Assets/Resources/UILayouts/Scenes/LoadScene.unity
+    path: Assets/Resources/Scenes/LoadScene.unity
     guid: 62c8919d9bf0a5b408d6f5740467e74a
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
+    path: Assets/Resources/Scenes/NormalScene.unity
+    guid: 5971530990a6743429948d1d292124ef
+  - enabled: 0
     path: Assets/BobAR_1.unity
     guid: 1f2b406a8d089a845ac150ff5d91904c
-  - enabled: 1
+  - enabled: 0
     path: Assets/BobAR_2.unity
     guid: 962e8a722b208b64fb3c051afbc8f266
   m_configObjects: {}
