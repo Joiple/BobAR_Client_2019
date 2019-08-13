@@ -663,8 +663,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: "+\uD314\uB85C\uC6B0"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d49d223758e96bb4381f6b10bf409270, type: 2}
-  m_sharedMaterial: {fileID: 6067461409698481856, guid: d49d223758e96bb4381f6b10bf409270,
+  m_fontAsset: {fileID: 11400000, guid: 63a2a543583b2e9428bf87141cf0b48b, type: 2}
+  m_sharedMaterial: {fileID: 5861340030649194592, guid: 63a2a543583b2e9428bf87141cf0b48b,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
