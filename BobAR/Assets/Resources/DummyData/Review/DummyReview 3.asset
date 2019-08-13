@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad5aa7f5b1c38c448fe49d44d1d84a0, type: 3}
+  m_Name: DummyReview 3
+  m_EditorClassIdentifier: 
+  key: rev3
+  date: '2019-08-06 '
+  content: "\uD30C\uC804+\uB9C9\uAC78\uB9AC \uD658\uC0C1\uC870\uD569 "
+  taste: 5
+  clearance: 4
+  kindness: 4
+  atmosphere: 5
+  efficiency: 4
+  writer: {fileID: 11400000, guid: d17031f89165cc541adaf982df820311, type: 2}
+  restaurant: {fileID: 11400000, guid: b2cc1e392fbfcdf4fbe0aedb72f29a41, type: 2}
+  imageKeys:
+  - {fileID: 11400000, guid: 98dc5d6afdb459244b74b01a704f50b9, type: 2}
+  - {fileID: 11400000, guid: ad4a1bcddb99a5f4d8767856bf97be07, type: 2}

@@ -6,8 +6,6 @@ namespace Common.Dummies {
     [CreateAssetMenu(fileName = "DummyReview", menuName = "Custom/DummyReview")]
     public class DummyReview : ScriptableObject {
         public string key,
-                      writerKey,
-                      restaurantKey,
                       date,
                       content;
 
@@ -17,7 +15,9 @@ namespace Common.Dummies {
                    atmosphere,
                    efficiency;
 
-        public List<string> imageKeys=new List<string>();
+        public DummyUser writer;
+        public DummyRestaurant restaurant;
+        public List<DummyImage> imageKeys=new List<DummyImage>();
     }
 
 }

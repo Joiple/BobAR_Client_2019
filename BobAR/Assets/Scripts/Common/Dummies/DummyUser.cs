@@ -6,6 +6,9 @@ namespace Common.Dummies {
         public string key,
                       id,
                       nickname;
+
+        public DummyUser[] following,
+                           followers;
     }
 
 }

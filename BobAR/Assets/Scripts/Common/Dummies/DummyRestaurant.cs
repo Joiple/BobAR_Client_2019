@@ -14,7 +14,7 @@ namespace Common.Dummies {
                      latitude,
                      altitude;
 
-        public List<string> reviewKeys = new List<string>();
+        public List<DummyReview> reviewKeys = new List<DummyReview>();
     }
 
 }
