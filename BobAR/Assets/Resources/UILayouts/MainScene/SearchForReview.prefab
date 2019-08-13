@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6062671751387907730}
   - component: {fileID: 8085557892236410322}
   - component: {fileID: 1910781231817691580}
-  - component: {fileID: 5256380537299663646}
+  - component: {fileID: 6601687372731867845}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -88,7 +88,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &5256380537299663646
+--- !u!114 &6601687372731867845
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 0
+  m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
@@ -292,7 +292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Content: {fileID: 6062671751387907730}
   m_Horizontal: 1
-  m_Vertical: 1
+  m_Vertical: 0
   m_MovementType: 1
   m_Elasticity: 0.1
   m_Inertia: 1
