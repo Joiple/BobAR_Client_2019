@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Common.Dummies;
 using DataManagement;
 using TMPro;
 using UnityEngine;
@@ -23,15 +24,17 @@ namespace NormalScene.Pages.UserView {
         }
 
         private IEnumerator InitialLoad() {
-            
-            nickname.text = "내 이름";
-            following.text= "123";
-            follower.text = "123";
-            reviewCount.text = "123";
+
+            DummyUser user=DummyContainer.instance.userDB[DataStorage.instance.GetItem<string>(DataStorageKeyset.NextUser)];
+            List<string> reviewKeys = DummyContainer.instance.CountReviewOfUser(user.key);
+            nickname.text = user.nickname;
+            following.text= user.following.Length.ToString();
+            follower.text = user.followers.Length.ToString();
+            reviewCount.text = reviewKeys.Count.ToString();
             foreach(UserReviewIndicator t in reviewIndicators)Destroy(t.gameObject);
             reviewIndicators.Clear();
-            for (int i = 0; i < 10; i++) {
-                UserReviewIndicator temp = Instantiate(userReviewInidicatorPrefab, reviewGroup).Initialize(this);
+            foreach(string k in reviewKeys) {
+                UserReviewIndicator temp = Instantiate(userReviewInidicatorPrefab, reviewGroup).Initialize(this,k);
                 reviewIndicators.Add(temp);
             }
 

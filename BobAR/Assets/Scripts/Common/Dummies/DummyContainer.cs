@@ -5,11 +5,8 @@ using Common.Dummies;
 public class DummyContainer : MonoBehaviour {
     public static DummyContainer instance;
 
-    public void Awake() {
+    public void Initialize() {
         instance = this;
-    }
-
-    public void Start() {
         imageDB = new Dictionary<string, DummyImage>();
         userDB = new Dictionary<string, DummyUser>();
         restaurantDB = new Dictionary<string, DummyRestaurant>();
@@ -29,4 +26,14 @@ public class DummyContainer : MonoBehaviour {
     public Dictionary<string, DummyUser> userDB;
     public Dictionary<string, DummyRestaurant> restaurantDB;
     public Dictionary<string, DummyReview> reviewDB;
+
+    public List<string> CountReviewOfUser(string userKey) {
+        DummyUser user = userDB[userKey];
+        List<string> ret = new List<string>();
+        foreach (DummyReview rev in reviewDB.Values) {
+            if (rev.writer.Equals(user)) ret.Add(rev.key);
+        }
+
+        return ret;
+    }
 }

@@ -184,6 +184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcfe79b14d4bc0f408d2a3cdc5846239, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MyKey: pig123
+  dummy: {fileID: 549600975}
 --- !u!114 &549600975
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Common.Dummies;
 using DataManagement;
 using TMPro;
 using UnityEngine;
@@ -23,15 +24,11 @@ namespace NormalScene.Pages.RestaurantView {
         }
 
         public IEnumerator InitializeInternal() {
-            //TODO 리뷰 내용 수신
-            string contentString = "";
-
-            for (int i = 0; i < 100; i++) {
-                contentString += "내용";
-            }
-
-            content.text = contentString;
-
+            //TODO 네트워크 리뷰
+            DummyReview rev = DummyContainer.instance.reviewDB[id];
+            content.text = rev.content.Length>20?rev.content.Substring(0,20)+"...":rev.content;
+            DummyImage img = DummyContainer.instance.imageDB[rev.imageKeys[0].key];
+            thumbnailImage.sprite = Sprite.Create(img.image,new Rect(Vector2.zero,new Vector2(img.image.width,img.image.height)),Vector2.one/2f );
             yield return null;
         }
 

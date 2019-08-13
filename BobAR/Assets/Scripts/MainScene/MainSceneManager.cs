@@ -22,12 +22,9 @@ namespace MainScene {
         public List<Poi> pois;
         public TMP_InputField searchText;
         public void Start() {
-            Key nowPos = new Key() {
-                type = KeyType.Location,
-                longitude = gps.initialLon,
-                latitude = gps.initialLat,
-                altitude = gps.initialAlt
-            };
+            float longitude = gps.initialLon,
+                  latitude = gps.initialLat,
+                  altitude = gps.initialAlt;
         }
 
         public void RefreshSearch() {
@@ -64,11 +61,11 @@ namespace MainScene {
 
         public void ToMyPage() {
             DataStorage.instance.AddItem(DataStorageKeyset.InitialScene, PageType.UserPage);
-            DataStorage.instance.AddItem(DataStorageKeyset.NextUser, DataStorage.instance.GetItem<Key>(DataStorageKeyset.MyKey));
+            DataStorage.instance.AddItem(DataStorageKeyset.NextUser, DataStorage.instance.GetItem<string>(DataStorageKeyset.MyKey));
             CustomSceneManager.instance.LoadScene(1);
         }
 
-        public void ToRestaurantPage(Key key) {
+        public void ToRestaurantPage(string key) {
             DataStorage.instance.AddItem(DataStorageKeyset.InitialScene, PageType.RestaurantPage);
             DataStorage.instance.AddItem(DataStorageKeyset.NextRestaurant, key);
             CustomSceneManager.instance.LoadScene(1);

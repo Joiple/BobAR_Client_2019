@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Common.Dummies;
 using DataManagement;
 using TMPro;
 using UnityEngine;
@@ -25,9 +26,9 @@ namespace NormalScene.Pages.FollowerView {
         public IEnumerator LoadAsync() {
             yield return null;
             //TODO 로딩
-
-            nickName.text = "다른사람이름";
-            reviewNumber.text = string.Format("리뷰 {0}개", 4);
+            DummyUser user = DummyContainer.instance.userDB[id];
+            nickName.text = user.nickname;
+            reviewNumber.text = $"리뷰 {DummyContainer.instance.CountReviewOfUser(id).Count}개";
         }
 
         public void FollowClicked() {

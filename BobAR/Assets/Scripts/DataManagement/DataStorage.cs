@@ -13,10 +13,13 @@ namespace DataManagement {
     }
     public class DataStorage : MonoBehaviour {
         public static DataStorage instance;
-
+        public string MyKey;
+        public DummyContainer dummy;
         private void Start() {
             if (instance != null) Destroy(instance);
             instance = this;
+            dummy.Initialize();
+            AddItem(DataStorageKeyset.MyKey, MyKey);
         }
 
         private Dictionary<DataStorageKeyset, object> data = new Dictionary<DataStorageKeyset, object>();
