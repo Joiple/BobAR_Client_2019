@@ -61,7 +61,7 @@ public class SunshineNativeGalleryHandler : MonoBehaviour
         string[] splitString = bigString.Split(new string[] { separator }, StringSplitOptions.RemoveEmptyEntries);
         List<string> finalSplitString = new List<string>();
       //  string[] finalSplitString;
-        for (int i = 1; i < splitString.Length; i++)
+        for (int i = 0; i < splitString.Length; i++)
         {
             finalSplitString.Add(splitString[i]);
         }
