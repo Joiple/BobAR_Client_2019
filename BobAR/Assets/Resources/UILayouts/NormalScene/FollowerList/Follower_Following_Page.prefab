@@ -2420,6 +2420,53 @@ PrefabInstance:
       propertyPath: m_overflowMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2275214709843190568, guid: e204aa28a3c1da547b2e89bfa09d4d03,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275214709843190568, guid: e204aa28a3c1da547b2e89bfa09d4d03,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275214709843190568, guid: e204aa28a3c1da547b2e89bfa09d4d03,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275214709843190568, guid: e204aa28a3c1da547b2e89bfa09d4d03,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275214709843190568, guid: e204aa28a3c1da547b2e89bfa09d4d03,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 63a2a543583b2e9428bf87141cf0b48b,
+        type: 2}
+    - target: {fileID: 2275214709843190568, guid: e204aa28a3c1da547b2e89bfa09d4d03,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 5861340030649194592, guid: 63a2a543583b2e9428bf87141cf0b48b,
+        type: 2}
+    - target: {fileID: 2275214709843190568, guid: e204aa28a3c1da547b2e89bfa09d4d03,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3060659964493497405, guid: e204aa28a3c1da547b2e89bfa09d4d03,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3060659964493497405, guid: e204aa28a3c1da547b2e89bfa09d4d03,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e204aa28a3c1da547b2e89bfa09d4d03, type: 3}
 --- !u!224 &5935335360603726715 stripped
