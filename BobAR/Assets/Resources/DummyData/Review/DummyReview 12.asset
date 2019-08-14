@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad5aa7f5b1c38c448fe49d44d1d84a0, type: 3}
+  m_Name: DummyReview 12
+  m_EditorClassIdentifier: 
+  key: rev12
+  date: 2019-08-15
+  content: "\uC5D8\uBE0C\uB9AC\uB610 \uC788\uB358 \uC790\uB9AC \uC0C8\uB85C \uD30C\uC2A4\uD0C0
+    \uC9D1 \uC0DD\uACA8\uC11C \uAC00\uBD24\uB294\uB370 \uB9DB \uAD1C\uCC2E"
+  TagText: "#\uBBF8\uD0DC\uB9AC\uD30C\uC2A4\uD0C0 #\uD1A0\uB9C8\uD1A0\uC528\uD478\uB4DC\uD30C\uC2A4\uD0C0
+    #\uD30C\uC2A4\uD0C0 #\uAD1C\uCC2E\uB124"
+  taste: 4
+  clearance: 4
+  kindness: 4
+  atmosphere: 4
+  efficiency: 4
+  likes: 1
+  writer: {fileID: 11400000, guid: 1bd4026f050cbf7488ba7dff9ad273e9, type: 2}
+  restaurant: {fileID: 11400000, guid: 9223607ed4e85724a9d53d904f5cd101, type: 2}
+  imageKeys:
+  - {fileID: 11400000, guid: cb54b6f46646a894b9f8acdcc292663a, type: 2}

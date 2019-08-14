@@ -15,3 +15,10 @@ MonoBehaviour:
   key: bobar
   id: bobar
   nickname: "\uBC25\uC54C"
+  following:
+  - {fileID: 11400000, guid: e55ad8d6fcefb644db31ac87e5a87ccc, type: 2}
+  - {fileID: 11400000, guid: 3c606730fc53ebb47baa70c119e17f9c, type: 2}
+  - {fileID: 11400000, guid: d17031f89165cc541adaf982df820311, type: 2}
+  followers:
+  - {fileID: 11400000, guid: 3c606730fc53ebb47baa70c119e17f9c, type: 2}
+  - {fileID: 11400000, guid: d17031f89165cc541adaf982df820311, type: 2}

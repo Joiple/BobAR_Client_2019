@@ -7,17 +7,20 @@ namespace Common.Dummies {
     public class DummyReview : ScriptableObject {
         public string key,
                       date,
-                      content;
+                      content,
+            TagText;
 
         public int taste,
                    clearance,
                    kindness,
                    atmosphere,
-                   efficiency;
+                   efficiency,
+                   likes;
 
         public DummyUser writer;
         public DummyRestaurant restaurant;
         public List<DummyImage> imageKeys=new List<DummyImage>();
+
     }
 
 }

@@ -15,3 +15,7 @@ MonoBehaviour:
   key: hungry
   id: hungry
   nickname: hungry
+  following:
+  - {fileID: 11400000, guid: 1a97c1d96581ab546bda370b93f6785b, type: 2}
+  followers:
+  - {fileID: 11400000, guid: 1a97c1d96581ab546bda370b93f6785b, type: 2}

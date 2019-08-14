@@ -17,11 +17,14 @@ MonoBehaviour:
   content: "\uCE58\uC988\uB450\uB8E8\uCE58\uAE30 \uCE58\uC988 \uC644\uC804 \uB9CE\uC544\uC11C
     \uACE0\uC18C\uD558\uACE0 \uB9E4\uCF64\uD569\uB2C8\uB2E4. \uC2EC\uC9C0\uC5B4 \uBC25\uC774\uB791
     \uBC18\uCC2C\uAE4C\uC9C0 \uBB34\uD55C\uB9AC\uD544.. "
+  TagText: "#\uBC25\uC798\uD558\uB294\uB0A8\uC790 #\uCE58\uC988\uB450\uB8E8\uCE58\uAE30
+    #\uBB34\uD55C\uB9AC\uD544"
   taste: 5
   clearance: 4
   kindness: 3
   atmosphere: 3
   efficiency: 5
+  likes: 5
   writer: {fileID: 11400000, guid: 1bd4026f050cbf7488ba7dff9ad273e9, type: 2}
   restaurant: {fileID: 11400000, guid: ec3e648f19ec23b4eab474cd2d37a144, type: 2}
   imageKeys:

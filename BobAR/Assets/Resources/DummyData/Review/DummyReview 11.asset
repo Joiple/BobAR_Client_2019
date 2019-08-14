@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad5aa7f5b1c38c448fe49d44d1d84a0, type: 3}
+  m_Name: DummyReview 11
+  m_EditorClassIdentifier: 
+  key: rev11
+  date: 2019-08-14
+  content: "\uBCA0\uC774\uCEE8 \uD06C\uB9BC \uD30C\uC2A4\uD0C0 \uB118 \uB9DB\uC788\uC5B4\uC11C
+    \uD604\uAE30\uC99D \uB0AC\uC74C \uACB0\uC81C\uB294 \uAE30\uACC4\uB85C \uD558\uACE0
+    \uBA54\uB274\uB3C4 \uB2E4\uC591\uD558\uACE0 \uB2E4\uC74C\uC5D0 \uB610 \uAC00\uBCFC\uB9CC\uD55C
+    \uC2DD\uB2F9!"
+  TagText: "#\uBBF8\uD0DC\uB9AC\uD30C\uC2A4\uD0C0 #\uBCA0\uC774\uCEE8\uD06C\uB9BC\uD30C\uC2A4\uD0C0
+    #\uD1A0\uB9C8\uD1A0\uC2A4\uD30C\uAC8C\uD2F0 #\uBD80\uACBD\uB300\uACBD\uC131\uB300\uB9DB\uC9D1"
+  taste: 5
+  clearance: 4
+  kindness: 5
+  atmosphere: 5
+  efficiency: 3
+  likes: 5
+  writer: {fileID: 11400000, guid: 3c606730fc53ebb47baa70c119e17f9c, type: 2}
+  restaurant: {fileID: 11400000, guid: 9223607ed4e85724a9d53d904f5cd101, type: 2}
+  imageKeys:
+  - {fileID: 11400000, guid: 8a53dcdd155cbb84aabf08b3c9faff56, type: 2}
+  - {fileID: 11400000, guid: 710d2c5553e0a324b96e15e4a11797f8, type: 2}

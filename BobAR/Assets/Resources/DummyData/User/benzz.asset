@@ -15,3 +15,7 @@ MonoBehaviour:
   key: benzz
   id: benzz
   nickname: "\uBC34\uCBD4"
+  following:
+  - {fileID: 11400000, guid: b259d811617836345bfa86c3e1d29f02, type: 2}
+  followers:
+  - {fileID: 11400000, guid: b259d811617836345bfa86c3e1d29f02, type: 2}

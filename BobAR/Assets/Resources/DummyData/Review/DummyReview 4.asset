@@ -16,11 +16,13 @@ MonoBehaviour:
   date: '2019-08-07 '
   content: "\uB9C9\uAC78\uB9AC \uD55C \uC794 \uD558\uACE0 \uB450\uBD80 \uC785\uC5D0
     \uBB3C\uBA74 \uC138\uC0C1 \uBD80\uB4DC\uB7EC\uC6C0 \uB2E4 \uAC00\uC9C4 \uB290\uB08C! "
+  TagText: "#\uCC9C\uD0C1 #\uBD80\uACBD\uB300 #\uB450\uBD80\uAE40\uCE58"
   taste: 5
   clearance: 3
   kindness: 4
   atmosphere: 4
   efficiency: 4
+  likes: 1
   writer: {fileID: 11400000, guid: e55ad8d6fcefb644db31ac87e5a87ccc, type: 2}
   restaurant: {fileID: 11400000, guid: b2cc1e392fbfcdf4fbe0aedb72f29a41, type: 2}
   imageKeys:

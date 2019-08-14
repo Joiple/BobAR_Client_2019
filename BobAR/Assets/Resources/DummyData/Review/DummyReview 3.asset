@@ -15,11 +15,13 @@ MonoBehaviour:
   key: rev3
   date: '2019-08-06 '
   content: "\uD30C\uC804+\uB9C9\uAC78\uB9AC \uD658\uC0C1\uC870\uD569 "
+  TagText: "#\uCC9C\uD0C1 #\uB9C9\uAC78\uB9AC #\uD30C\uC804 #2\uD1B51\uBC18"
   taste: 5
   clearance: 4
   kindness: 4
   atmosphere: 5
   efficiency: 4
+  likes: 1
   writer: {fileID: 11400000, guid: d17031f89165cc541adaf982df820311, type: 2}
   restaurant: {fileID: 11400000, guid: b2cc1e392fbfcdf4fbe0aedb72f29a41, type: 2}
   imageKeys:

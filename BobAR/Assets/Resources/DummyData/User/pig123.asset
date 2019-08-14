@@ -15,3 +15,7 @@ MonoBehaviour:
   key: pig123
   id: pig123
   nickname: pigpig
+  following:
+  - {fileID: 11400000, guid: b259d811617836345bfa86c3e1d29f02, type: 2}
+  followers:
+  - {fileID: 11400000, guid: b259d811617836345bfa86c3e1d29f02, type: 2}

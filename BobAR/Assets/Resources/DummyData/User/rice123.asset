@@ -15,3 +15,8 @@ MonoBehaviour:
   key: rice123
   id: rice123
   nickname: "\uBC25\uC918"
+  following:
+  - {fileID: 11400000, guid: b259d811617836345bfa86c3e1d29f02, type: 2}
+  - {fileID: 11400000, guid: 1a97c1d96581ab546bda370b93f6785b, type: 2}
+  followers:
+  - {fileID: 11400000, guid: 1a97c1d96581ab546bda370b93f6785b, type: 2}
