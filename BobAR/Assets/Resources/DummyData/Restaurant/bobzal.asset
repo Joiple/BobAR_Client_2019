@@ -16,8 +16,8 @@ MonoBehaviour:
   restaurantName: "\uBC25\uC798\uD558\uB294\uB0A8\uC790"
   address: "\uBD80\uC0B0 \uB0A8\uAD6C \uC6A9\uC18C\uB85C 21\uBC88\uAE38 43"
   phoneNumber: 051-205-5572
-  longitude: 129.10327
-  latitude: 35.135723
+  longitude: 129.103272
+  latitude: 35.1357216
   altitude: 2
   reviewKeys:
   - {fileID: 11400000, guid: 1c8a188be266a5143a56f9639b3da965, type: 2}

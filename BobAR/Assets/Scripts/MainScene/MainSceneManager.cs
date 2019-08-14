@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using ARComponents;
+using Common.Dummies;
 using CustomSceneManagement;
 using DataManagement;
 using MainScene.SearchPages;
@@ -13,7 +14,7 @@ using UnityEngine;
 namespace MainScene {
 
     public class MainSceneManager : MonoBehaviour {
-        public SearchRestaurantPacket searchResults;
+        public Camera cam;
         public GpsManager gps;
         public RestaurantSearchPage filteringPage;
         public ReviewSearchPage reviewPage;
@@ -21,10 +22,9 @@ namespace MainScene {
         public Transform poiTransform;
         public List<Poi> pois;
         public TMP_InputField searchText;
+        
         public void Start() {
-            float longitude = gps.initialLon,
-                  latitude = gps.initialLat,
-                  altitude = gps.initialAlt;
+            RefreshSearch();
         }
 
         public void RefreshSearch() {
@@ -40,13 +40,13 @@ namespace MainScene {
             pois = new List<Poi>();
             searchText.text = filteringPage.searchText.text;
             //TODO 정보 수신
-            
-            for (int i = 0; i < searchResults.restaurantNum; i++) {
-                
-                Poi temp = Instantiate(poiPrefab, poiTransform);
+            foreach (DummyRestaurant rest in DummyContainer.instance.restaurantDB.Values) {
+                Debug.Log(rest.key);
+                Poi temp = Instantiate(poiPrefab, poiTransform).Initialize(this,rest.key);
                 pois.Add(temp);
             }
 
+            gps.pois = pois;
             yield return null;
         }
 

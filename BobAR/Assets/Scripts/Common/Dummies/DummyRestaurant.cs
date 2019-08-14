@@ -10,9 +10,9 @@ namespace Common.Dummies {
                       address,
                       phoneNumber;
 
-        public float longitude,
-                     latitude,
-                     altitude;
+        public double longitude,
+                      latitude;
+        public float altitude;
 
         public List<DummyReview> reviewKeys = new List<DummyReview>();
     }

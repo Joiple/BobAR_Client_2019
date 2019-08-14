@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Common.Dummies;
 using UnityEngine;
 
 namespace DataManagement {
@@ -15,12 +16,6 @@ namespace DataManagement {
         public static DataStorage instance;
         public string MyKey;
         public DummyContainer dummy;
-        private void Start() {
-            if (instance != null) Destroy(instance);
-            instance = this;
-            dummy.Initialize();
-            AddItem(DataStorageKeyset.MyKey, MyKey);
-        }
 
         private Dictionary<DataStorageKeyset, object> data = new Dictionary<DataStorageKeyset, object>();
 
@@ -46,6 +41,13 @@ namespace DataManagement {
             data.Remove(key);
 
             return true;
+        }
+
+        public void Initialize() {
+            if (instance != null) Destroy(instance);
+            instance = this;
+            dummy.Initialize();
+            AddItem(DataStorageKeyset.MyKey, MyKey);
         }
     }
 
