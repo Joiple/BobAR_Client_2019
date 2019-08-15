@@ -95,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1479,9 +1479,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afa9fc7a476e4d438c9f06beca5f1cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listTransform: {fileID: 0}
+  listTransform: {fileID: 8832025050771744369}
+  followerTransform: {fileID: 5973754920651457744}
   prefab: {fileID: 3504463901874753862, guid: e204aa28a3c1da547b2e89bfa09d4d03, type: 3}
   indicators: []
+  id: 
 --- !u!1 &4669862798089656783
 GameObject:
   m_ObjectHideFlags: 0
