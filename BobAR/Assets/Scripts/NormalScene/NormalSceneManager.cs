@@ -14,7 +14,8 @@ namespace NormalScene
         RestaurantPage,
         ReviewWritePage,
         ReviewDetailPage,
-        FollowerPage
+        FollowerPage,
+        TimelinePage
     }
 
     public class NormalSceneManager : MonoBehaviour
@@ -81,7 +82,9 @@ namespace NormalScene
                     break;
                 case PageType.FollowerPage:
                     ret = Instantiate(prefabs.followerPage).Initialize(this);
-
+                    break;
+                case PageType.TimelinePage:
+                    ret = Instantiate(prefabs.timelinePage).Initialize(this);
                     break;
                 default:
                     throw new Exception("잘못된 페이지타입");

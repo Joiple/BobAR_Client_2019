@@ -65,6 +65,11 @@ namespace MainScene {
             CustomSceneManager.instance.LoadScene(1);
         }
 
+        public void ToTimeLine() {
+            DataStorage.instance.AddItem(DataStorageKeyset.InitialScene, PageType.TimelinePage);
+            CustomSceneManager.instance.LoadScene(1);
+        }
+
         public void ToRestaurantPage(string key) {
             DataStorage.instance.AddItem(DataStorageKeyset.InitialScene, PageType.RestaurantPage);
             DataStorage.instance.AddItem(DataStorageKeyset.NextRestaurant, key);

@@ -17,6 +17,7 @@ namespace NormalScene.Pages.RestaurantView {
                                phoneNumber;
 
         public Transform listTransform;
+        public Slider[] miniStars;
 
         public List<RestaurantReviewIndicator> indicators=new List<RestaurantReviewIndicator>();
         //리뷰 추가
@@ -36,10 +37,18 @@ namespace NormalScene.Pages.RestaurantView {
             address.text = rest.address;
             phoneNumber.text = rest.phoneNumber;
             previewImage.sprite = Sprite.Create(img.image, new Rect(Vector2.zero, new Vector2(img.image.width, img.image.height)), Vector2.one / 2f);
+            float totalAvg = 0f;
             for (int i = 0; i < rest.reviewKeys.Count; i++) {
                 AddReview(rest.reviewKeys[i].key);
+                totalAvg += rest.reviewKeys[i].Avg;
             }
+
+            totalAvg /= rest.reviewKeys.Count;
             yield return null;
+
+            for (int i = 0; i < miniStars.Length; i++) {
+                miniStars[i].value = Mathf.Clamp01(totalAvg- i);
+            }
         }
         
         private void AddReview(string id) {
