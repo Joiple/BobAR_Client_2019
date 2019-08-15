@@ -1399,7 +1399,7 @@ GameObject:
   - component: {fileID: 8803589160695622362}
   - component: {fileID: 1737138751131130533}
   m_Layer: 5
-  m_Name: RastaurantInfo_List
+  m_Name: RestaurantInfo_List
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1476,9 +1476,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thumbnailImage: {fileID: 4970404322243635038}
+  followImage: {fileID: 4842514278298619333}
   manager: {fileID: 0}
   content: {fileID: 3782556435050086790}
   following: {fileID: 1745653342500206935}
+  liked: {fileID: 21300000, guid: 134fe6a4f1e26f24897d4dc98bef3411, type: 3}
+  unliked: {fileID: 21300000, guid: dd9d71fa75ae7eb40abf371c111188ce, type: 3}
+  nowLike: 0
   followedIndicator: {fileID: 4842514278298619333}
   id: 
 --- !u!1 &8803589161136568257

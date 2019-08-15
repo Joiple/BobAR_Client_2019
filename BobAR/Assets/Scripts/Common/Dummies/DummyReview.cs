@@ -20,7 +20,7 @@ namespace Common.Dummies {
         public DummyUser writer;
         public DummyRestaurant restaurant;
         public List<DummyImage> imageKeys=new List<DummyImage>();
-
+        public bool iLiked;
     }
 
 }
