@@ -16,7 +16,6 @@ namespace ARComponents {
         public void Update() {
             Input.gyro.enabled = true;
             cameraContainer.localRotation = gyro.attitude  * rot;
-            Debug.Log("Compass : " + Input.compass.trueHeading);
         }
 
         public void OnDrawGizmos() {

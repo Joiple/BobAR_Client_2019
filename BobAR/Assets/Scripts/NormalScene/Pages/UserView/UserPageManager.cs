@@ -26,6 +26,9 @@ namespace NormalScene.Pages.UserView {
         private IEnumerator InitialLoad() {
 
             DummyUser user=DummyContainer.instance.userDB[DataStorage.instance.GetItem<string>(DataStorageKeyset.NextUser)];
+            DummyImage img = DummyContainer.instance.imageDB[user.profileImage.key];
+            profileImage.sprite = Sprite.Create(img.image, new Rect(Vector2.zero, new Vector2(img.image.width, img.image.height)), Vector2.one / 2f);
+            targetId = user.key;
             List<string> reviewKeys = DummyContainer.instance.CountReviewOfUser(user.key);
             nickname.text = user.nickname;
             following.text= user.following.Length.ToString();

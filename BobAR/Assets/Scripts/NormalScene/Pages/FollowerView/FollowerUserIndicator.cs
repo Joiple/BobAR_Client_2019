@@ -29,6 +29,8 @@ namespace NormalScene.Pages.FollowerView {
             DummyUser user = DummyContainer.instance.userDB[id];
             nickName.text = user.nickname;
             reviewNumber.text = $"리뷰 {DummyContainer.instance.CountReviewOfUser(id).Count}개";
+            DummyImage img = DummyContainer.instance.imageDB[user.profileImage.key];
+            profileImage.sprite = Sprite.Create(img.image, new Rect(Vector2.zero, new Vector2(img.image.width, img.image.height)), Vector2.one / 2f);
         }
 
         public void FollowClicked() {
