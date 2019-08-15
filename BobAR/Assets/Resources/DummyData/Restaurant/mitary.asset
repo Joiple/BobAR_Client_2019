@@ -19,4 +19,7 @@ MonoBehaviour:
   longitude: 129.103887
   latitude: 35.1361975
   altitude: 0
-  reviewKeys: []
+  reviewKeys:
+  - {fileID: 11400000, guid: 54627ce2b36c98346b170ec51463ccca, type: 2}
+  - {fileID: 11400000, guid: ec2ae7bf32238224590eddbfb975b11b, type: 2}
+  - {fileID: 11400000, guid: daa7549902d437f4fa7b5e77c267ed13, type: 2}
