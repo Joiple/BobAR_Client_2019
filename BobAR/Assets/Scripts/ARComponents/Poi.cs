@@ -30,7 +30,7 @@ namespace ARComponents {
 
         public Poi Initialize(MainSceneManager manager,string id="") {
             this.manager = manager;
-            GetComponent<Canvas>().worldCamera = manager.cam;
+            GetComponentInChildren<Canvas>().worldCamera = manager.cam;
             this.id = id;
             StartCoroutine(InitializeInternal());
             return this;
