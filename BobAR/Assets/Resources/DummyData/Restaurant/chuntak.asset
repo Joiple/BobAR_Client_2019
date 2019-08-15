@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eef5179bb153f94cad983ecf488e6eb, type: 3}
+  m_Name: chuntak
+  m_EditorClassIdentifier: 
+  key: chuntak
+  restaurantName: "\uCC9C\uD0C1"
+  address: "\uBD80\uC0B0 \uB0A8\uAD6C \uC6A9\uC18C\uB85C21\uBC88\uAE38 61"
+  phoneNumber: 010-7572-4737
+  longitude: 129.10394
+  latitude: 35.1361065
+  altitude: 0
+  reviewKeys:
+  - {fileID: 11400000, guid: 39fa49e513489634087f3c9bf340fdf2, type: 2}
+  - {fileID: 11400000, guid: d142f5212909ee64e89134068a94c890, type: 2}
+  - {fileID: 11400000, guid: 68f57a20a38ab034585219e282c179d0, type: 2}

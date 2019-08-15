@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using Debug = DebugWrap.Debug;
 
 namespace ARComponents {
 
@@ -36,7 +35,6 @@ namespace ARComponents {
             WebCamDevice[] dev = WebCamTexture.devices;
 
             if (dev.Length == 0) {
-                DebugWrap.Debug.Log("No Camera");
 
                 yield break;
             }

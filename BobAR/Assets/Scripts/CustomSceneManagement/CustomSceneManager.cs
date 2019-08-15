@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections;
+using DataManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Debug = DebugWrap.Debug;
 
 namespace CustomSceneManagement {
 
@@ -63,6 +63,9 @@ namespace CustomSceneManagement {
             SceneManager.sceneLoaded += OnLoaded;
             Debug.Log(scenes!=null);
             Debug.Log(scenes[startingSceneIndex]!=null);
+
+            GetComponent<DataStorage>().Initialize();
+
             StartCoroutine(LoadSceneWithoutLoading(scenes[startingSceneIndex]));
             Debug.Log("Loading Started");
             DontDestroyOnLoad(gameObject);

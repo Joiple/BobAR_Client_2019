@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using DataManagement;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Android;
 using UnityEngine.UI;
 
 namespace NormalScene.Pages.ReviewWriteView {
@@ -77,6 +77,37 @@ namespace NormalScene.Pages.ReviewWriteView {
 
         public IEnumerator WriteReviewInternal() {
             yield return null;
+        }
+
+        public SunshineNativeGalleryHandler gallertyHandler;
+
+        public void AddImageClick() {
+#if UNITY_ANDROID
+            if (!Permission.HasUserAuthorizedPermission(Permission.ExternalStorageRead)) {
+                Permission.RequestUserPermission(Permission.ExternalStorageRead);
+            }
+#endif
+            gallertyHandler.OpenGallery((bool success, List<string> paths) =>
+            {
+                if (success)
+                {
+               
+                    // paths = file location or url of all picked items
+                    //Showing the picked Item.. You can make your own gallery by yourself
+                    foreach(string path in paths)AddImageInternal(path);
+                    
+                }
+            });
+        }
+
+        public ImagePreview prefab;
+        public Transform imageList;
+        public Transform imageAdderButton;
+        public void AddImageInternal(string path) {
+
+            ImagePreview temp = Instantiate(prefab, imageList).Initialize(path);
+            imageAdderButton.SetSiblingIndex(imageList.childCount-1);
+            images.Add(temp);
         }
 
         public void Click() {

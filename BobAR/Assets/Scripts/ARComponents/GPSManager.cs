@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Android;
-using Debug = DebugWrap.Debug;
 
 namespace ARComponents {
 
@@ -11,12 +10,21 @@ namespace ARComponents {
         [NonSerialized] public static GpsManager instance;
         private LocationService gps;
         public float radius = 6378137;
-        public  float initialLat, initialLon, initialAlt;
+
+        public double initialLat,
+                      initialLon;
+
+        public float initialAlt;
+
+        public double[] centerCross;
         public float connectionWait = 5f;
         public List<Poi> pois;
         public bool runningGpsFlag = false;
+        private LatLngUTMConverter converter;
+
         public void Awake() {
             instance = this;
+            converter = new LatLngUTMConverter();
         }
 
         public void Start() {
@@ -24,8 +32,7 @@ namespace ARComponents {
         }
 
         public IEnumerator GpsStart() {
-            if (!Permission.HasUserAuthorizedPermission("android.permission.ACCESS_FINE_LOCATION"))
-                Permission.RequestUserPermission("android.permission.ACCESS_FINE_LOCATION");
+            if (!Permission.HasUserAuthorizedPermission("android.permission.ACCESS_FINE_LOCATION")) Permission.RequestUserPermission("android.permission.ACCESS_FINE_LOCATION");
 
             while (!Permission.HasUserAuthorizedPermission("android.permission.ACCESS_FINE_LOCATION")) {
                 yield return null;
@@ -60,15 +67,21 @@ namespace ARComponents {
         }
 
         public IEnumerator GpsUpdate() {
-            while (gps.status == LocationServiceStatus.Running && runningGpsFlag) {
-                initialLon = gps.lastData.longitude;
-                initialLat = gps.lastData.latitude;
-                initialAlt = gps.lastData.altitude;
+            while (Application.isEditor || (gps.status == LocationServiceStatus.Running && runningGpsFlag)) {
+                if (gps.status == LocationServiceStatus.Running) {
+                    initialLon = gps.lastData.longitude;
+                    initialLat = gps.lastData.latitude;
+                    initialAlt = gps.lastData.altitude;
+                }
+
+                centerCross = LonLatToCross(initialLon, initialLat);
+
+
                 foreach (Poi p in pois) {
                     p.RefreshPosition();
                 }
 
-                Debug.Log(gps.lastData.longitude + "/" + gps.lastData.latitude + "/" + gps.lastData.altitude);
+                Debug.Log(initialLon + "/" + initialLat + "/" + initialAlt);
 
                 yield return new WaitForSeconds(5f);
             }
@@ -76,18 +89,23 @@ namespace ARComponents {
             gps.Stop();
         }
 
-        public static float LatToZ(double lat) {
-            lat = (lat - instance.initialLat) / 0.00001 * 0.12179047095976932582726898256213;
-            double z = lat;
+        public static double[] LonLatToCross(double lon, double lat) {
+            UTMResult result = instance.converter.convertLatLngToUtm(lat, lon);
 
-            return (float) z;
+            double[] ret = new[] {
+                result.Easting, result.Northing
+            };
+
+            return ret;
         }
 
-        public static double ZToLat(float z) {
-            double lat = z;
-            lat = lat * 0.00001 / 0.12179047095976932582726898256213 + instance.initialLat;
+        public static double[] GetDistanceFromCenter(double lon, double lat) {
+            double[] tempResult = LonLatToCross(lon, lat);
 
-            return (float) lat;
+            tempResult[0] -= instance.centerCross[0];
+            tempResult[1] -= instance.centerCross[1];
+
+            return tempResult;
         }
 
         public static float AltToY(float alt) {
@@ -96,19 +114,6 @@ namespace ARComponents {
 
         public static float YtoAlt(float alt) {
             return alt + instance.initialAlt;
-        }
-
-        public static float LonToX(double lon) {
-            lon = (lon - instance.initialLon) / 0.000001 * 0.00728553580298947812081345114627;
-            double x = lon;
-
-            return (float) x;
-        }
-
-        public static double XToLon(float x) {
-            double lon = x;
-            lon = lon * 0.000001 / 0.00728553580298947812081345114627 + instance.initialLon;
-            return (float) lon;
         }
     }
 

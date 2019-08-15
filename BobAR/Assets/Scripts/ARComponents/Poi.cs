@@ -1,6 +1,8 @@
 ﻿using System.Collections;
+using Common.Dummies;
 using CustomSceneManagement;
 using DataManagement;
+using MainScene;
 using NormalScene;
 using TMPro;
 using UnityEngine;
@@ -14,17 +16,34 @@ namespace ARComponents {
         public float altitude;
         public Image thumbnail;
         public TextMeshProUGUI distanceIndicator;
+        public double[] cross;
+        private MainSceneManager manager;
+
         public void RefreshPosition() {
-            transform.position = new Vector3(GpsManager.LonToX(longitude), GpsManager.AltToY(altitude), GpsManager.LatToZ(latitude));
+            cross = GpsManager.GetDistanceFromCenter(longitude, latitude);
+            transform.position = new Vector3((float)cross[1], GpsManager.AltToY(altitude), -(float)cross[0]);
         }
 
-        public void Initialize() {
+        public void LateUpdate() {
+            transform.rotation=manager.cam.transform.rotation;
+        }
+
+        public Poi Initialize(MainSceneManager manager,string id="") {
+            this.manager = manager;
+            GetComponentInChildren<Canvas>().worldCamera = manager.cam;
+            this.id = id;
             StartCoroutine(InitializeInternal());
+            return this;
         }
 
         private IEnumerator InitializeInternal() {
-            id = "";
-            thumbnail.sprite = null;
+            //TODO 서버수신 가게정보
+            DummyRestaurant rest = DummyContainer.instance.restaurantDB[id];
+            longitude = rest.longitude;
+            latitude = rest.latitude;
+            altitude = rest.altitude;
+            DummyImage img = DummyContainer.instance.imageDB[DummyContainer.instance.GetIdOfProfileImage(rest)];
+            thumbnail.sprite = Sprite.Create(img.image, new Rect(Vector2.zero, new Vector2(img.image.width, img.image.height)), Vector2.one / 2f);
             yield return null;
 
         }
@@ -36,7 +55,7 @@ namespace ARComponents {
         }
 
         public void Update() {
-            distanceIndicator.text = Vector3.Distance(transform.position, Vector3.zero)+"";
+            distanceIndicator.text = Vector3.Distance(transform.position, Vector3.zero).ToString("F0")+"m";
         }
 
     }

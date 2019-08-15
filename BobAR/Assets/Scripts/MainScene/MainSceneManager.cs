@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using ARComponents;
+using Common.Dummies;
 using CustomSceneManagement;
 using DataManagement;
 using MainScene.SearchPages;
@@ -13,7 +14,7 @@ using UnityEngine;
 namespace MainScene {
 
     public class MainSceneManager : MonoBehaviour {
-        public SearchRestaurantPacket searchResults;
+        public Camera cam;
         public GpsManager gps;
         public RestaurantSearchPage filteringPage;
         public ReviewSearchPage reviewPage;
@@ -21,13 +22,9 @@ namespace MainScene {
         public Transform poiTransform;
         public List<Poi> pois;
         public TMP_InputField searchText;
+        
         public void Start() {
-            Key nowPos = new Key() {
-                type = KeyType.Location,
-                longitude = gps.initialLon,
-                latitude = gps.initialLat,
-                altitude = gps.initialAlt
-            };
+            RefreshSearch();
         }
 
         public void RefreshSearch() {
@@ -43,13 +40,13 @@ namespace MainScene {
             pois = new List<Poi>();
             searchText.text = filteringPage.searchText.text;
             //TODO 정보 수신
-            
-            for (int i = 0; i < searchResults.restaurantNum; i++) {
-                
-                Poi temp = Instantiate(poiPrefab, poiTransform);
+            foreach (DummyRestaurant rest in DummyContainer.instance.restaurantDB.Values) {
+                Debug.Log(rest.key);
+                Poi temp = Instantiate(poiPrefab, poiTransform).Initialize(this,rest.key);
                 pois.Add(temp);
             }
 
+            gps.pois = pois;
             yield return null;
         }
 
@@ -64,11 +61,11 @@ namespace MainScene {
 
         public void ToMyPage() {
             DataStorage.instance.AddItem(DataStorageKeyset.InitialScene, PageType.UserPage);
-            DataStorage.instance.AddItem(DataStorageKeyset.NextUser, DataStorage.instance.GetItem<Key>(DataStorageKeyset.MyKey));
+            DataStorage.instance.AddItem(DataStorageKeyset.NextUser, DataStorage.instance.GetItem<string>(DataStorageKeyset.MyKey));
             CustomSceneManager.instance.LoadScene(1);
         }
 
-        public void ToRestaurantPage(Key key) {
+        public void ToRestaurantPage(string key) {
             DataStorage.instance.AddItem(DataStorageKeyset.InitialScene, PageType.RestaurantPage);
             DataStorage.instance.AddItem(DataStorageKeyset.NextRestaurant, key);
             CustomSceneManager.instance.LoadScene(1);

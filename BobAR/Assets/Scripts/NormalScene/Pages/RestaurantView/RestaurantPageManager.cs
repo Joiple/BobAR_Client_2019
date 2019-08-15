@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Common.Dummies;
 using DataManagement;
 using Network;
 using TMPro;
@@ -27,21 +28,23 @@ namespace NormalScene.Pages.RestaurantView {
         }
 
         public IEnumerator InternalStart() {
-            Key key=DataStorage.instance.GetItem<Key>(DataStorageKeyset.NextRestaurant);
-            
-            restaurantName.text = "가게 이름";
-            address.text = "가게 주소";
-            phoneNumber.text = "010-1111-2222";
-
-            for (int i = 0; i < 8; i++) {
-                AddReview("");
+            string key=DataStorage.instance.GetItem<string>(DataStorageKeyset.NextRestaurant);
+            //TODO 가게 네트워크
+            DummyRestaurant rest = DummyContainer.instance.restaurantDB[key];
+            DummyImage img = DummyContainer.instance.imageDB[DummyContainer.instance.reviewDB[rest.reviewKeys[0].key].imageKeys[0].key];
+            restaurantName.text = rest.restaurantName;
+            address.text = rest.address;
+            phoneNumber.text = rest.phoneNumber;
+            previewImage.sprite = Sprite.Create(img.image, new Rect(Vector2.zero, new Vector2(img.image.width, img.image.height)), Vector2.one / 2f);
+            for (int i = 0; i < rest.reviewKeys.Count; i++) {
+                AddReview(rest.reviewKeys[i].key);
             }
             yield return null;
         }
         
         private void AddReview(string id) {
             
-            RestaurantReviewIndicator temp=Instantiate(indicatorPrefab,listTransform).Initialize(this,id);//TODO 레이아웃 포지션 지정
+            RestaurantReviewIndicator temp=Instantiate(indicatorPrefab,listTransform).Initialize(this,id);
             indicators.Add(temp);
         }
 
