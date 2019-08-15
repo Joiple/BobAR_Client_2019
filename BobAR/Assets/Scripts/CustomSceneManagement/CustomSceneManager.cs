@@ -13,7 +13,7 @@ namespace CustomSceneManagement {
         [Header("로딩스크린용 씬")] public string loadingScreen;
         [Header("가고자 하는 씬 번호")] public int Goto;
         [Header("작동")] public bool starter;
-
+        private bool running;
         /// <summary>
         /// 초기화
         /// </summary>
@@ -77,6 +77,7 @@ namespace CustomSceneManagement {
         /// <param name="name">대상 씬의 이름</param>
         /// <returns></returns>
         public IEnumerator LoadSceneWithLoading(string name) {
+            running = true;
             Debug.Log("Getting Active Scene");
             Scene scene = SceneManager.GetActiveScene();
             Debug.Log("Loading LoadingScene");
@@ -87,6 +88,7 @@ namespace CustomSceneManagement {
             yield return LoadSceneWithoutLoading(name);
             Debug.Log("Unload LoadingScene");
             SceneManager.UnloadSceneAsync(loadingScreen);
+            running = false;
         }
 
         /// <summary>
@@ -94,7 +96,9 @@ namespace CustomSceneManagement {
         /// </summary>
         /// <param name="index">씬 번호</param>
         public void LoadScene(int index) {
-            StartCoroutine(LoadSceneWithLoading(scenes[index]));
+            if (!running) {
+                StartCoroutine(LoadSceneWithLoading(scenes[index]));
+            }
         }
 
         /// <summary>

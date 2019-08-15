@@ -20,3 +20,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1a97c1d96581ab546bda370b93f6785b, type: 2}
   followers:
   - {fileID: 11400000, guid: 1a97c1d96581ab546bda370b93f6785b, type: 2}
+  profileImage: {fileID: 11400000, guid: ab5f39cab9b2f834193a3ee7917ff47f, type: 2}

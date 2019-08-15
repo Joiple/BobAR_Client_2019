@@ -25,3 +25,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0475dc2ce63119b4a83788e73b0130be, type: 2}
   - {fileID: 11400000, guid: e55ad8d6fcefb644db31ac87e5a87ccc, type: 2}
   - {fileID: 11400000, guid: d17031f89165cc541adaf982df820311, type: 2}
+  profileImage: {fileID: 11400000, guid: b8ae6e6133532454587382dbe65228ed, type: 2}
