@@ -9,6 +9,9 @@ namespace Common.Dummies {
 
         public DummyUser[] following,
                            followers;
+
+        public DummyImage profileImage;
+
     }
 
 }

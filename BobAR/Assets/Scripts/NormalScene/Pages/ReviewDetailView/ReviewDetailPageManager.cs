@@ -48,10 +48,11 @@ namespace NormalScene.Pages.ReviewDetailView {
             DummyReview rev = DummyContainer.instance.reviewDB[DataStorage.instance.GetItem<string>(DataStorageKeyset.NextReview)];
             DummyUser user=DummyContainer.instance.userDB[rev.writer.key];
             DummyImage img=DummyContainer.instance.imageDB[rev.imageKeys[0].key];
+            DummyImage userProfile = DummyContainer.instance.imageDB[user.profileImage.key];
             id = rev.key;
             restaurantKey = rev.restaurant.key;
             thumbnailImage.sprite = Sprite.Create(img.image,new Rect(Vector2.zero,new Vector2(img.image.width,img.image.height)),Vector2.one/2f );
-            profileImage.sprite = null;
+            profileImage.sprite = Sprite.Create(userProfile.image,new Rect(Vector2.zero,new Vector2(userProfile.image.width,userProfile.image.height)),Vector2.one/2f );
             followingNumber.text = "" + 123;
             userName.text = user.nickname;
             content.text = rev.content;

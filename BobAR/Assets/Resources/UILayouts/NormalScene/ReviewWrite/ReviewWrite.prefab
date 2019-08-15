@@ -7430,8 +7430,8 @@ MonoBehaviour:
   m_ReadOnly: 0
   m_RichText: 1
   m_GlobalFontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_OnFocusSelectAll: 1
-  m_ResetOnDeActivation: 1
+  m_OnFocusSelectAll: 0
+  m_ResetOnDeActivation: 0
   m_RestoreOriginalTextOnEscape: 1
   m_isRichTextEditingAllowed: 0
   m_LineLimit: 0
@@ -8213,11 +8213,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3581103343666325535, guid: d56a3198474353f48bb12013194baaa4,
-        type: 3}
-      propertyPath: m_Texture
-      value: 
-      objectReference: {fileID: 2800000, guid: d35d405edb676bf4c9ccd8f019a92178, type: 3}
     - target: {fileID: 2053662406999448722, guid: d56a3198474353f48bb12013194baaa4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -8228,6 +8223,11 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 2493821381370034823}
+    - target: {fileID: 3581103343666325535, guid: d56a3198474353f48bb12013194baaa4,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: d35d405edb676bf4c9ccd8f019a92178, type: 3}
     m_RemovedComponents:
     - {fileID: 1743112499806526850, guid: d56a3198474353f48bb12013194baaa4, type: 3}
     - {fileID: 3581103343666325535, guid: d56a3198474353f48bb12013194baaa4, type: 3}

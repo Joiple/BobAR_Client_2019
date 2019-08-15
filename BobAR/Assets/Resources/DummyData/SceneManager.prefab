@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4717266026784643578
+--- !u!1 &3896406212352950511
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 610662593919587494}
-  - component: {fileID: 3890839485895400745}
+  - component: {fileID: 3896406212352950504}
+  - component: {fileID: 3896406212352950505}
+  - component: {fileID: 3896406212352950506}
+  - component: {fileID: 3896406212352950507}
   m_Layer: 0
-  m_Name: DummyContainer
+  m_Name: SceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &610662593919587494
+--- !u!4 &3896406212352950504
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4717266026784643578}
+  m_GameObject: {fileID: 3896406212352950511}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,13 +33,46 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3890839485895400745
+--- !u!114 &3896406212352950505
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4717266026784643578}
+  m_GameObject: {fileID: 3896406212352950511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39e8f26c43045284c9a568b963fa9273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scenes:
+  - MainScene
+  - NormalScene
+  startingSceneIndex: 0
+  loadingScreen: LoadScene
+  Goto: 0
+  starter: 0
+--- !u!114 &3896406212352950506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3896406212352950511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcfe79b14d4bc0f408d2a3cdc5846239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MyKey: mukji
+  dummy: {fileID: 3896406212352950507}
+--- !u!114 &3896406212352950507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3896406212352950511}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37f8b52c3babefe4b9374793e988f3cf, type: 3}
@@ -69,6 +104,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e978343749dde0345b56bf3d8a819aa8, type: 2}
   - {fileID: 11400000, guid: e13be765a90153c4986a496209002652, type: 2}
   - {fileID: 11400000, guid: 8f9890f50f0e6f74b999f6c29046c477, type: 2}
+  - {fileID: 11400000, guid: 3be0dd9e09d08d8429788a2e9e68dd36, type: 2}
+  - {fileID: 11400000, guid: b8ae6e6133532454587382dbe65228ed, type: 2}
+  - {fileID: 11400000, guid: 3be3456dcb7adff458b7dbaca2a71db7, type: 2}
+  - {fileID: 11400000, guid: 02e460f95f3be524b93849d462b796ea, type: 2}
+  - {fileID: 11400000, guid: d211e5a5feb9e0e468306f5e92a1dcf5, type: 2}
+  - {fileID: 11400000, guid: 0e088e0f341848443b0c6d92bd324978, type: 2}
+  - {fileID: 11400000, guid: e93952b894c9ec448ae26f40c60e06e2, type: 2}
+  - {fileID: 11400000, guid: ab5f39cab9b2f834193a3ee7917ff47f, type: 2}
   users:
   - {fileID: 11400000, guid: d17031f89165cc541adaf982df820311, type: 2}
   - {fileID: 11400000, guid: e55ad8d6fcefb644db31ac87e5a87ccc, type: 2}
