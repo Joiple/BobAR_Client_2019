@@ -31,11 +31,11 @@ namespace NormalScene.Pages.RestaurantView {
             string key=DataStorage.instance.GetItem<string>(DataStorageKeyset.NextRestaurant);
             //TODO 가게 네트워크
             DummyRestaurant rest = DummyContainer.instance.restaurantDB[key];
-
+            DummyImage img = DummyContainer.instance.imageDB[DummyContainer.instance.reviewDB[rest.reviewKeys[0].key].imageKeys[0].key];
             restaurantName.text = rest.restaurantName;
             address.text = rest.address;
             phoneNumber.text = rest.phoneNumber;
-
+            previewImage.sprite = Sprite.Create(img.image, new Rect(Vector2.zero, new Vector2(img.image.width, img.image.height)), Vector2.one / 2f);
             for (int i = 0; i < rest.reviewKeys.Count; i++) {
                 AddReview(rest.reviewKeys[i].key);
             }

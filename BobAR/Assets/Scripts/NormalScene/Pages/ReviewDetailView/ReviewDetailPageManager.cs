@@ -58,7 +58,7 @@ namespace NormalScene.Pages.ReviewDetailView {
             float totalScore = 0f;
             totalScore += rev.taste + rev.atmosphere + rev.clearance + rev.efficiency + rev.kindness;
             totalScore /= 5f;
-            totalAvgScore.text = totalScore.ToString("F1")+"점";
+            totalAvgScore.text = totalScore.ToString("F1");
             tasteScore.text = rev.taste+"점";
             clearanceScore.text = rev.clearance+"점";
             kindnessScore.text = rev.kindness+"점";
