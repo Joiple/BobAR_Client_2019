@@ -5195,7 +5195,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6683985385692793614}
+  m_GameObject: {fileID: 4271998406894529314}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -5203,7 +5203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6787,7 +6787,7 @@ MonoBehaviour:
   gallertyHandler: {fileID: 464411865004006164}
   prefab: {fileID: 5112178746027718153, guid: 6d33acebe102ef7488e8cdcfbd4b2194, type: 3}
   imageList: {fileID: 7188127064070377265}
-  imageAdderButton: {fileID: 6683985385692793610}
+  imageAdderButton: {fileID: 4271998406894529312}
 --- !u!114 &464411865004006164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7988,7 +7988,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6683985385692793610}
+  - {fileID: 4271998406894529312}
   m_Father: {fileID: 5936938192492644386}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8232,13 +8232,13 @@ PrefabInstance:
     - {fileID: 1743112499806526850, guid: d56a3198474353f48bb12013194baaa4, type: 3}
     - {fileID: 3581103343666325535, guid: d56a3198474353f48bb12013194baaa4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d56a3198474353f48bb12013194baaa4, type: 3}
---- !u!224 &6683985385692793610 stripped
+--- !u!224 &4271998406894529312 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7461170050517737513, guid: d56a3198474353f48bb12013194baaa4,
     type: 3}
   m_PrefabInstance: {fileID: 4271998406894529315}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6683985385692793614 stripped
+--- !u!1 &4271998406894529314 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7461170050517737517, guid: d56a3198474353f48bb12013194baaa4,
     type: 3}

@@ -11,7 +11,7 @@ namespace Common.Dummies {
                            followers;
 
         public DummyImage profileImage;
-
+        public bool iFollowing;
     }
 
 }

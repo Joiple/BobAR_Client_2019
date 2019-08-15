@@ -12,9 +12,11 @@ namespace NormalScene.Pages.FollowerView {
         private string id;
 
         public TextMeshProUGUI nickName,
-                               reviewNumber;
-
-        public Image profileImage;
+                               reviewNumber,
+            followButtonText;
+        public Image profileImage,followButtonImage;
+        public Sprite unclickedSprite,clickedSprite;
+        public bool following = false;
         public FollowerUserIndicator Initialize(FollowerPageManager followerPageManager, string id="") {
             this.manager = followerPageManager;
             this.id = id;
@@ -31,15 +33,30 @@ namespace NormalScene.Pages.FollowerView {
             reviewNumber.text = $"리뷰 {DummyContainer.instance.CountReviewOfUser(id).Count}개";
             DummyImage img = DummyContainer.instance.imageDB[user.profileImage.key];
             profileImage.sprite = Sprite.Create(img.image, new Rect(Vector2.zero, new Vector2(img.image.width, img.image.height)), Vector2.one / 2f);
-        }
-
-        public void FollowClicked() {
-
+            following = user.iFollowing;
+            SetFollowVisual(following);
         }
 
         public void Click() {
             DataStorage.instance.AddItem(DataStorageKeyset.NextUser, id);
             manager.manager.AddPage(PageType.UserPage);
+        }
+
+        public void ClickFollow() {
+            following = !following;
+            SetFollowVisual(following);
+            DummyContainer.instance.userDB[id].iFollowing = following;
+        }
+
+        public void SetFollowVisual(bool status) {
+            followButtonText.text = status ? "팔로잉" : "+팔로우";
+            followButtonText.color = status ? Color.white:new Color(1f, .525f, 0f) ; 
+            followButtonImage.sprite = status ? clickedSprite : unclickedSprite;
+        }
+
+        public void OnEnable() {
+            following = DummyContainer.instance.userDB[id].iFollowing;
+            SetFollowVisual(following);
         }
 
     }

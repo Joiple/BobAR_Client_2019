@@ -9,7 +9,8 @@ namespace NormalScene.Pages.ReviewDetailView {
 
     public class ReviewDetailPageManager : Page {
         public Image thumbnailImage,
-                     profileImage;
+                     profileImage,
+            likeImage;
 
         public TextMeshProUGUI followingNumber,
                                userName,
@@ -21,13 +22,17 @@ namespace NormalScene.Pages.ReviewDetailView {
                                atmosphereScore,
                                efficiencyScore,
                                date,
-                               reviewTag;
+                               reviewTag,
+                               likeNumber;
 
         public Slider tasteSlider,
                       clearanceSlider,
                       kindnessSlider,
                       atmosphereSlider,
                       efficiencySlider;
+
+        public Sprite liked,
+                      unLiked;
 
         public string id,restaurantKey;
         public Slider[] starSliders;
@@ -77,11 +82,20 @@ namespace NormalScene.Pages.ReviewDetailView {
             for (int i = 0; i < 5; i++) {
                 starSliders[i].value = Mathf.Clamp01(totalScore-i);
             }
-
+            SetLikeVisual();
             yield return null;
         }
 
-        public void Follow() { }
+        public void SetLikeVisual() {
+            DummyReview rev = DummyContainer.instance.reviewDB[id];
+            likeNumber.text = (rev.likes + (rev.iLiked ? 1 : 0)).ToString();
+            likeImage.sprite = rev.iLiked ? liked : unLiked;
+        }
+
+        public void Follow() {
+            DummyContainer.instance.reviewDB[id].iLiked = !DummyContainer.instance.reviewDB[id].iLiked;
+            SetLikeVisual();
+        }
     }
 
 }
