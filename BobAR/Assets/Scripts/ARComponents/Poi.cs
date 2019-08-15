@@ -21,7 +21,7 @@ namespace ARComponents {
 
         public void RefreshPosition() {
             cross = GpsManager.GetDistanceFromCenter(longitude, latitude);
-            transform.position = new Vector3((float)cross[0], GpsManager.AltToY(altitude), (float)cross[1]);
+            transform.position = new Vector3((float)cross[1], GpsManager.AltToY(altitude), -(float)cross[0]);
         }
 
         public void LateUpdate() {

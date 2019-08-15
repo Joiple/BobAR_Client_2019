@@ -45,7 +45,6 @@ namespace ARComponents {
             }
 
             gps.Start(1f);
-            Input.compass.enabled = true;
             float t = connectionWait;
 
             while (gps.status == LocationServiceStatus.Initializing && t > 0) {

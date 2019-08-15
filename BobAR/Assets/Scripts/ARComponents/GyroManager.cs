@@ -15,7 +15,7 @@ namespace ARComponents {
 
         public void Update() {
             Input.gyro.enabled = true;
-            cameraContainer.localRotation = gyro.attitude * Quaternion.Euler(0, Input.compass.enabled ? -Input.compass.trueHeading - 90 : 0, 0) * rot;
+            cameraContainer.localRotation = gyro.attitude  * rot;
             Debug.Log("Compass : " + Input.compass.trueHeading);
         }
 
