@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad5aa7f5b1c38c448fe49d44d1d84a0, type: 3}
+  m_Name: DummyReview 10
+  m_EditorClassIdentifier: 
+  key: rev10
+  date: 2019-08-13
+  content: "\uC54C\uB9AC\uC624 \uC62C\uB9AC\uC624\uAC00 \uB9DB\uC774 \uAD1C\uCC2E\uC740
+    \uC2DD\uB2F9 \uD53C\uC790\uB791 \uC624\uBE10\uD30C\uC2A4\uD0C0\uB3C4 \uBB3C\uB860
+    \uB9DB\uC788\uC5C8\uB2E4."
+  TagText: "#\uBBF8\uD0DC\uB9AC\uD30C\uC2A4\uD0C0 #\uD398\uD398\uB85C\uB2C8\uD53C\uC790
+    #\uC624\uBE10\uD30C\uC2A4\uD0C0 #\uC54C\uB9AC\uC624\uC62C\uB9AC\uC624 "
+  taste: 5
+  clearance: 4
+  kindness: 4
+  atmosphere: 5
+  efficiency: 4
+  likes: 4
+  writer: {fileID: 11400000, guid: b259d811617836345bfa86c3e1d29f02, type: 2}
+  restaurant: {fileID: 11400000, guid: 9223607ed4e85724a9d53d904f5cd101, type: 2}
+  imageKeys:
+  - {fileID: 11400000, guid: 8a893d1a83a3c9b46979e7dd5bdb3663, type: 2}
+  - {fileID: 11400000, guid: 84d575949d23de449b3ba7dc5e7a0d8d, type: 2}

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 624207f4c13cc324d8c66c675281fbbf, type: 3}
+  m_Name: mukji
+  m_EditorClassIdentifier: 
+  key: mukji
+  id: mukji
+  nickname: "\uBAA8\uBA39\uC9C0"
+  following:
+  - {fileID: 11400000, guid: de10c53369c642e4490800ed0f1ddf6c, type: 2}
+  - {fileID: 11400000, guid: 1bd4026f050cbf7488ba7dff9ad273e9, type: 2}
+  - {fileID: 11400000, guid: 0475dc2ce63119b4a83788e73b0130be, type: 2}
+  followers:
+  - {fileID: 11400000, guid: de10c53369c642e4490800ed0f1ddf6c, type: 2}
+  - {fileID: 11400000, guid: 1bd4026f050cbf7488ba7dff9ad273e9, type: 2}
+  - {fileID: 11400000, guid: 0475dc2ce63119b4a83788e73b0130be, type: 2}
+  - {fileID: 11400000, guid: e55ad8d6fcefb644db31ac87e5a87ccc, type: 2}
+  - {fileID: 11400000, guid: d17031f89165cc541adaf982df820311, type: 2}

@@ -3055,11 +3055,11 @@ MonoBehaviour:
   userName: {fileID: 9205078402504969796}
   content: {fileID: 4398604402918317000}
   totalAvgScore: {fileID: 6963164923412399461}
-  tasteScore: {fileID: 4694995353906486669}
-  clearanceScore: {fileID: 8339998041890368504}
-  kindnessScore: {fileID: 7639364286428459474}
-  atmosphereScore: {fileID: 8025111034826619536}
-  efficiencyScore: {fileID: 3739945318696402084}
+  tasteScore: {fileID: 3396095578518343332}
+  clearanceScore: {fileID: 5516181268261775854}
+  kindnessScore: {fileID: 5377911969687922107}
+  atmosphereScore: {fileID: 5523640352690319824}
+  efficiencyScore: {fileID: 6254881846602426203}
   date: {fileID: 8561707362233954356}
   reviewTag: {fileID: 7996481314775107028}
   tasteSlider: {fileID: 20084120398987634}
@@ -3067,6 +3067,8 @@ MonoBehaviour:
   kindnessSlider: {fileID: 3038499655689231647}
   atmosphereSlider: {fileID: 7296982514288899253}
   efficiencySlider: {fileID: 1489212900115406113}
+  id: 
+  restaurantKey: 
   starSliders:
   - {fileID: 2569636541587178604}
   - {fileID: 3737335280105633115}

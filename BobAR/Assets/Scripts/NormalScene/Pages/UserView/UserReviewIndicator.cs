@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Common.Dummies;
 using DataManagement;
 using TMPro;
 using UnityEngine;
@@ -19,7 +20,11 @@ namespace NormalScene.Pages.UserView {
         }
 
         private IEnumerator LoadInternal() {
-            restaurantName.text = "식당 이름";
+            DummyReview rev = DummyContainer.instance.reviewDB[id];
+            DummyImage img = DummyContainer.instance.imageDB[rev.imageKeys[0].key];
+            DummyRestaurant rest = DummyContainer.instance.restaurantDB[rev.restaurant.key];
+            profileImage.sprite=Sprite.Create(img.image,new Rect(Vector2.zero,new Vector2(img.image.width,img.image.height)),Vector2.one/2f );
+            restaurantName.text = rest.restaurantName;
             yield return null;
         }
 
