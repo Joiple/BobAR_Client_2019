@@ -3,7 +3,6 @@ using System.Collections;
 using DataManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Debug = DebugWrap.Debug;
 
 namespace CustomSceneManagement {
 

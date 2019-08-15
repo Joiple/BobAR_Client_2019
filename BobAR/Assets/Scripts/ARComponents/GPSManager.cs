@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Android;
-using Debug = DebugWrap.Debug;
 
 namespace ARComponents {
 
@@ -46,6 +45,7 @@ namespace ARComponents {
             }
 
             gps.Start(1f);
+            Input.compass.enabled = true;
             float t = connectionWait;
 
             while (gps.status == LocationServiceStatus.Initializing && t > 0) {
