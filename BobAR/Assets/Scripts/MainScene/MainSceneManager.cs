@@ -21,8 +21,7 @@ namespace MainScene {
         public Poi poiPrefab;
         public Transform poiTransform;
         public List<Poi> pois;
-        public TMP_InputField searchText;
-        
+
         public void Start() {
             RefreshSearch();
         }
@@ -38,7 +37,6 @@ namespace MainScene {
                 }
 
             pois = new List<Poi>();
-            searchText.text = filteringPage.searchText.text;
             //TODO 정보 수신
             foreach (DummyRestaurant rest in DummyContainer.instance.restaurantDB.Values) {
                 Debug.Log(rest.key);
