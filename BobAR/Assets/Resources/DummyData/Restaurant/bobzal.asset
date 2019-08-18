@@ -18,7 +18,7 @@ MonoBehaviour:
   phoneNumber: 051-205-5572
   longitude: 129.103272
   latitude: 35.1357216
-  altitude: 2
+  altitude: 30
   reviewKeys:
   - {fileID: 11400000, guid: 1c8a188be266a5143a56f9639b3da965, type: 2}
   - {fileID: 11400000, guid: d3e0a41e42140114f93038e1e20ea899, type: 2}

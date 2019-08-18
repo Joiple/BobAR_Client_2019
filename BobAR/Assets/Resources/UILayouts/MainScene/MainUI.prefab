@@ -1128,7 +1128,7 @@ MonoBehaviour:
   poiPrefab: {fileID: 0}
   poiTransform: {fileID: 0}
   pois: []
-  searchText: {fileID: 0}
+  searchText: {fileID: 7494317924014440680}
 --- !u!1 &8499912194470370986
 GameObject:
   m_ObjectHideFlags: 0

@@ -61,6 +61,8 @@ namespace NormalScene.Pages.ReviewDetailView {
             DataStorage.instance.AddItem(DataStorageKeyset.NextRestaurant,restaurantKey );
             manager.AddPage(PageType.RestaurantPage);
         }
+
+        public void OnEnable() => StartCoroutine(InitializeInternal());
         private IEnumerator InitializeInternal() {
             //TODO 리뷰 정보 수신
             DummyReview rev = DummyContainer.instance.reviewDB[DataStorage.instance.GetItem<string>(DataStorageKeyset.NextReview)];

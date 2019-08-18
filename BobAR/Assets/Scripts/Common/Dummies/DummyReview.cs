@@ -5,11 +5,11 @@ using UnityEngine;
 namespace Common.Dummies {
 
     [CreateAssetMenu(fileName = "DummyReview", menuName = "Custom/DummyReview")]
-    public class DummyReview : ScriptableObject,IComparable<DummyReview> {
+    public class DummyReview : ScriptableObject, IComparable<DummyReview> {
         public string key,
                       date,
                       content,
-            TagText;
+                      TagText;
 
         public int taste,
                    clearance,
@@ -20,7 +20,7 @@ namespace Common.Dummies {
 
         public DummyUser writer;
         public DummyRestaurant restaurant;
-        public List<DummyImage> imageKeys=new List<DummyImage>();
+        public List<DummyImage> imageKeys = new List<DummyImage>();
         public bool iLiked;
 
         public float Avg => (taste + clearance + kindness + atmosphere + efficiency) / 5f;
