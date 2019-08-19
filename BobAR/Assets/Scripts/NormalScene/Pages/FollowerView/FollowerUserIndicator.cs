@@ -7,21 +7,28 @@ using UnityEngine.UI;
 
 namespace NormalScene.Pages.FollowerView {
 
-    public class FollowerUserIndicator :MonoBehaviour {
+    public class FollowerUserIndicator : MonoBehaviour {
         private FollowerPageManager manager;
         private string id;
 
         public TextMeshProUGUI nickName,
                                reviewNumber,
-            followButtonText;
-        public Image profileImage,followButtonImage;
-        public Sprite unclickedSprite,clickedSprite;
+                               followButtonText;
+
+        public Image profileImage,
+                     followButtonImage;
+
+        public Sprite unclickedSprite,
+                      clickedSprite;
+
         public bool following = false;
-        public FollowerUserIndicator Initialize(FollowerPageManager followerPageManager, string id="") {
+
+        public FollowerUserIndicator Initialize(FollowerPageManager followerPageManager, string id = "") {
             this.manager = followerPageManager;
             this.id = id;
-            
+
             StartCoroutine(LoadAsync());
+
             return this;
         }
 
@@ -50,15 +57,16 @@ namespace NormalScene.Pages.FollowerView {
 
         public void SetFollowVisual(bool status) {
             followButtonText.text = status ? "팔로잉" : "+팔로우";
-            followButtonText.color = status ? Color.white:new Color(1f, .525f, 0f) ; 
+            followButtonText.color = status ? Color.white : new Color(1f, .525f, 0f);
             followButtonImage.sprite = status ? clickedSprite : unclickedSprite;
         }
 
         public void OnEnable() {
-            following = DummyContainer.instance.userDB[id].iFollowing;
-            SetFollowVisual(following);
+            if (id != null) {
+                following = DummyContainer.instance.userDB[id].iFollowing;
+                SetFollowVisual(following);
+            }
         }
-
     }
 
 }

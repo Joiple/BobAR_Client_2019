@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using Common.Dummies;
 using DataManagement;
 using TMPro;
@@ -34,6 +35,18 @@ namespace NormalScene.Pages.ReviewDetailView {
         public Sprite liked,
                       unLiked;
 
+        public int ThumbnailIndex {
+            get => thumbnailIndex;
+            set {
+                if (value < 0) value = 0;
+                if (value >= sprites.Count) value = sprites.Count - 1;
+                thumbnailIndex = value;
+                thumbnailImage.sprite=sprites[thumbnailIndex];
+            }
+        }
+        private  int thumbnailIndex;
+
+        public List<Sprite> sprites;
         public string id,restaurantKey;
         public Slider[] starSliders;
 
@@ -48,15 +61,25 @@ namespace NormalScene.Pages.ReviewDetailView {
             DataStorage.instance.AddItem(DataStorageKeyset.NextRestaurant,restaurantKey );
             manager.AddPage(PageType.RestaurantPage);
         }
+
+        public void OnEnable() => StartCoroutine(InitializeInternal());
         private IEnumerator InitializeInternal() {
             //TODO 리뷰 정보 수신
             DummyReview rev = DummyContainer.instance.reviewDB[DataStorage.instance.GetItem<string>(DataStorageKeyset.NextReview)];
             DummyUser user=DummyContainer.instance.userDB[rev.writer.key];
-            DummyImage img=DummyContainer.instance.imageDB[rev.imageKeys[0].key];
+
+            foreach (DummyImage i in rev.imageKeys) {
+                DummyImage img=DummyContainer.instance.imageDB[i.key];
+                sprites.Add(Sprite.Create(img.image,new Rect(Vector2.zero,new Vector2(img.image.width,img.image.height)),Vector2.one/2f ));
+
+                yield return null;
+            }
+
+            ThumbnailIndex = 0;
+            
             DummyImage userProfile = DummyContainer.instance.imageDB[user.profileImage.key];
             id = rev.key;
             restaurantKey = rev.restaurant.key;
-            thumbnailImage.sprite = Sprite.Create(img.image,new Rect(Vector2.zero,new Vector2(img.image.width,img.image.height)),Vector2.one/2f );
             profileImage.sprite = Sprite.Create(userProfile.image,new Rect(Vector2.zero,new Vector2(userProfile.image.width,userProfile.image.height)),Vector2.one/2f );
             followingNumber.text = "" + 123;
             userName.text = user.nickname;
@@ -85,6 +108,8 @@ namespace NormalScene.Pages.ReviewDetailView {
             SetLikeVisual();
             yield return null;
         }
+
+        public void SwipeImage(int diff) => ThumbnailIndex += diff;
 
         public void SetLikeVisual() {
             DummyReview rev = DummyContainer.instance.reviewDB[id];

@@ -10,7 +10,8 @@ namespace DataManagement {
         NextReview,
         InitialScene,
         MyKey,
-        FollowStatus
+        FollowStatus,
+        WritingStatus
     }
     public class DataStorage : MonoBehaviour {
         public static DataStorage instance;

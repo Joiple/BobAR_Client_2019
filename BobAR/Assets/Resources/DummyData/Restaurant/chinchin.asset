@@ -18,7 +18,7 @@ MonoBehaviour:
   phoneNumber: 051-702-5123
   longitude: 129.10356
   latitude: 35.1362663
-  altitude: 0
+  altitude: 25
   reviewKeys:
   - {fileID: 11400000, guid: 6e4f357fb10442e47b2d1c14561060ec, type: 2}
   - {fileID: 11400000, guid: e1d65542604941b4f895cedec984f74f, type: 2}

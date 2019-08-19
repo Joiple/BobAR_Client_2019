@@ -9,7 +9,8 @@ namespace NormalScene {
                     userPage,
                     reviewWritePage,
                     reviewDetailPage,
-                    followerPage;
+                    followerPage,
+                    timelinePage;
     }
 
 }

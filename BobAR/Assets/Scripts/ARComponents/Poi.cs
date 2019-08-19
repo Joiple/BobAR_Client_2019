@@ -18,14 +18,10 @@ namespace ARComponents {
         public TextMeshProUGUI distanceIndicator;
         public double[] cross;
         private MainSceneManager manager;
-
+        public AnimationCurve curve;
         public void RefreshPosition() {
             cross = GpsManager.GetDistanceFromCenter(longitude, latitude);
             transform.position = new Vector3((float)cross[1], GpsManager.AltToY(altitude), -(float)cross[0]);
-        }
-
-        public void LateUpdate() {
-            transform.rotation=manager.cam.transform.rotation;
         }
 
         public Poi Initialize(MainSceneManager manager,string id="") {
@@ -55,7 +51,10 @@ namespace ARComponents {
         }
 
         public void Update() {
-            distanceIndicator.text = Vector3.Distance(transform.position, Vector3.zero).ToString("F0")+"m";
+            transform.rotation=manager.cam.transform.rotation;
+            float dist = Vector3.Distance(new Vector3(transform.position.x, 0, transform.position.z), Vector3.zero);
+            distanceIndicator.text = dist.ToString("F0")+"m";
+            transform.localScale = Vector3.one * curve.Evaluate(dist);
         }
 
     }

@@ -21,8 +21,7 @@ namespace MainScene {
         public Poi poiPrefab;
         public Transform poiTransform;
         public List<Poi> pois;
-        public TMP_InputField searchText;
-        
+        public TextMeshProUGUI searchText;
         public void Start() {
             RefreshSearch();
         }
@@ -38,12 +37,19 @@ namespace MainScene {
                 }
 
             pois = new List<Poi>();
-            searchText.text = filteringPage.searchText.text;
             //TODO 정보 수신
             foreach (DummyRestaurant rest in DummyContainer.instance.restaurantDB.Values) {
                 Debug.Log(rest.key);
-                Poi temp = Instantiate(poiPrefab, poiTransform).Initialize(this,rest.key);
-                pois.Add(temp);
+                int score = searchText.text.Length>0?0:999;
+                Debug.Log("initialScore : "+score);
+                foreach (char t in searchText.text)
+                    foreach (char tt in rest.restaurantName) score += tt == t ? 1 : 0;
+                
+                Debug.Log("resultScore : "+score);
+                if (score >= 1) {
+                    Poi temp = Instantiate(poiPrefab, poiTransform).Initialize(this, rest.key);
+                    pois.Add(temp);
+                }
             }
 
             gps.pois = pois;
@@ -62,6 +68,11 @@ namespace MainScene {
         public void ToMyPage() {
             DataStorage.instance.AddItem(DataStorageKeyset.InitialScene, PageType.UserPage);
             DataStorage.instance.AddItem(DataStorageKeyset.NextUser, DataStorage.instance.GetItem<string>(DataStorageKeyset.MyKey));
+            CustomSceneManager.instance.LoadScene(1);
+        }
+
+        public void ToTimeLine() {
+            DataStorage.instance.AddItem(DataStorageKeyset.InitialScene, PageType.TimelinePage);
             CustomSceneManager.instance.LoadScene(1);
         }
 

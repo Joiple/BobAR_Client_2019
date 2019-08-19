@@ -17,7 +17,8 @@ namespace NormalScene.Pages.RestaurantView {
                                phoneNumber;
 
         public Transform listTransform;
-
+        public Slider[] miniStars;
+        public string id;
         public List<RestaurantReviewIndicator> indicators=new List<RestaurantReviewIndicator>();
         //리뷰 추가
         public override Page Initialize(NormalSceneManager controller) {
@@ -28,18 +29,31 @@ namespace NormalScene.Pages.RestaurantView {
         }
 
         public IEnumerator InternalStart() {
-            string key=DataStorage.instance.GetItem<string>(DataStorageKeyset.NextRestaurant);
+            id=DataStorage.instance.GetItem<string>(DataStorageKeyset.NextRestaurant);
             //TODO 가게 네트워크
-            DummyRestaurant rest = DummyContainer.instance.restaurantDB[key];
+            DummyRestaurant rest = DummyContainer.instance.restaurantDB[id];
             DummyImage img = DummyContainer.instance.imageDB[DummyContainer.instance.reviewDB[rest.reviewKeys[0].key].imageKeys[0].key];
             restaurantName.text = rest.restaurantName;
             address.text = rest.address;
             phoneNumber.text = rest.phoneNumber;
             previewImage.sprite = Sprite.Create(img.image, new Rect(Vector2.zero, new Vector2(img.image.width, img.image.height)), Vector2.one / 2f);
+            float totalAvg = 0f;
             for (int i = 0; i < rest.reviewKeys.Count; i++) {
                 AddReview(rest.reviewKeys[i].key);
+                totalAvg += rest.reviewKeys[i].Avg;
             }
+
+            totalAvg /= rest.reviewKeys.Count;
             yield return null;
+
+            for (int i = 0; i < miniStars.Length; i++) {
+                miniStars[i].value = Mathf.Clamp01(totalAvg- i);
+            }
+        }
+
+        public void OnEnable() {
+            foreach(Transform t in listTransform)Destroy(t.gameObject);
+            StartCoroutine(InternalStart());
         }
         
         private void AddReview(string id) {
@@ -48,8 +62,8 @@ namespace NormalScene.Pages.RestaurantView {
             indicators.Add(temp);
         }
 
-        public void WriteReview()
-        {
+        public void WriteReview() {
+            DataStorage.instance.AddItem(DataStorageKeyset.NextRestaurant, id);
             manager.AddPage(PageType.ReviewWritePage);
         }
     }

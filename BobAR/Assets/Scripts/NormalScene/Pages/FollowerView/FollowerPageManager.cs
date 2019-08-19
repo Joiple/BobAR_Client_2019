@@ -23,6 +23,12 @@ namespace NormalScene.Pages.FollowerView {
             return this;
         }
 
+        public void OnEnable() {
+            foreach(Transform t in followingTransform)Destroy(t.gameObject);
+            foreach(Transform t in followerTransform)Destroy(t.gameObject);
+            StartCoroutine(LoadAsync());
+        }
+
         private IEnumerator LoadAsync() {
             indicators.Clear();
             //TODO 정보 수신

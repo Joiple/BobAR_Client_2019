@@ -1,4 +1,5 @@
-﻿using CustomSceneManagement;
+﻿using Common.Dummies;
+using CustomSceneManagement;
 using DataManagement;
 using NormalScene;
 using TMPro;
@@ -12,16 +13,18 @@ namespace MainScene.SearchPages {
                                restaurantAddress;
 
         public string restaurantId;
-        public ReviewSearchIndicator Initialize(string id="",string name="식당 이름",string address="식당 주소") {
+        public ReviewSearchIndicator Initialize(string id="") {
             restaurantId = id;
-            this.restaurantName.text = name;
-            this.restaurantAddress.text = address;
+            DummyRestaurant rest = DummyContainer.instance.restaurantDB[id];
+            this.restaurantName.text = rest.restaurantName;
+            this.restaurantAddress.text = rest.address;
 
             return this;
         }
 
         public void Clicked() {
             DataStorage.instance.AddItem(DataStorageKeyset.InitialScene, PageType.ReviewWritePage);
+            DataStorage.instance.AddItem(DataStorageKeyset.NextRestaurant, restaurantId);
             CustomSceneManager.instance.LoadScene(1);
 
         }
