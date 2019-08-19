@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Common.Dummies;
+using DataManagement;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Android;
@@ -11,6 +14,7 @@ namespace NormalScene.Pages.ReviewWriteView {
         public TextMeshProUGUI restaurantName;
         public TMP_InputField contentField;
         public List<ImagePreview> images;
+        public string id;
 
         public Sprite GrayStar,
                       GoldStar;
@@ -65,7 +69,9 @@ namespace NormalScene.Pages.ReviewWriteView {
 
         public override Page Initialize(NormalSceneManager controller) {
             base.Initialize(controller);
-            restaurantName.text = "가게 이름";
+            id = DataStorage.instance.GetItem<string>(DataStorageKeyset.NextRestaurant);
+
+            restaurantName.text = DummyContainer.instance.restaurantDB[id].restaurantName;
 
             return this;
         }
@@ -87,15 +93,11 @@ namespace NormalScene.Pages.ReviewWriteView {
                 Permission.RequestUserPermission(Permission.ExternalStorageRead);
             }
 #endif
-            gallertyHandler.OpenGallery((bool success, List<string> paths) =>
-            {
-                if (success)
-                {
-               
+            gallertyHandler.OpenGallery((bool success, List<string> paths) => {
+                if (success) {
                     // paths = file location or url of all picked items
                     //Showing the picked Item.. You can make your own gallery by yourself
-                    foreach(string path in paths)AddImageInternal(path);
-                    
+                    foreach (string path in paths) AddImageInternal(path);
                 }
             });
         }
@@ -103,15 +105,42 @@ namespace NormalScene.Pages.ReviewWriteView {
         public ImagePreview prefab;
         public Transform imageList;
         public Transform imageAdderButton;
-        public void AddImageInternal(string path) {
 
+
+        public void AddImageInternal(string path) {
             ImagePreview temp = Instantiate(prefab, imageList).Initialize(path);
-            imageAdderButton.SetSiblingIndex(imageList.childCount-1);
+            imageAdderButton.SetSiblingIndex(imageList.childCount - 1);
             images.Add(temp);
         }
 
         public void Click() {
-            //TODO 리뷰송신
+            List<DummyImage> tlist = new List<DummyImage>();
+            int i = 0;
+
+            foreach (ImagePreview prev in images) {
+                DummyImage img = new DummyImage() {
+                    image = (Texture2D) prev.thumbnail.texture,
+                    key = "newImage" + i
+                };
+                DummyContainer.instance.imageDB.Add(img.key,img);
+                tlist.Add(img);
+            }
+
+            DummyReview tRev = new DummyReview() {
+                key="newReview",
+                taste = taste,
+                clearance = clearance,
+                kindness = kindness,
+                atmosphere = atmosphere,
+                efficiency = efficiency,
+                content = contentField.text,
+                date = DateTime.Now.ToString(),
+                iLiked = false,
+                writer = DummyContainer.instance.userDB[DataStorage.instance.MyKey],
+                restaurant = DummyContainer.instance.restaurantDB[id],
+                imageKeys = tlist
+            };
+            DummyContainer.instance.reviewDB.Add(tRev.key,tRev);
             Exit();
         }
     }

@@ -90,10 +90,6 @@ namespace MainScene.SearchPages {
             indicator.text = searchText.text;
             placeHolder.SetActive(searchText.text.Length == 0);
             Save();
-            Close();
-        }
-
-        public void Search() {
             context.RefreshSearch();
             Close();
         }

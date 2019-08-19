@@ -2938,6 +2938,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcfa132fc1fa4bf4c997cd06efc6e833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  logs: []
   logTags: []
   recs: []
   logList: {fileID: 5642318989687401352}

@@ -18,7 +18,7 @@ MonoBehaviour:
   phoneNumber: 051-612-7772
   longitude: 129.103887
   latitude: 35.1361975
-  altitude: 0
+  altitude: 25
   reviewKeys:
   - {fileID: 11400000, guid: 54627ce2b36c98346b170ec51463ccca, type: 2}
   - {fileID: 11400000, guid: ec2ae7bf32238224590eddbfb975b11b, type: 2}

@@ -8,7 +8,7 @@ namespace ARComponents {
 
     public class GpsManager : MonoBehaviour {
         [NonSerialized] public static GpsManager instance;
-        private LocationService gps;
+        public LocationService gps;
         public float radius = 6378137;
 
         public double initialLat,
@@ -109,7 +109,7 @@ namespace ARComponents {
         }
 
         public static float AltToY(float alt) {
-            return alt - instance.initialAlt;
+            return alt-25;
         }
 
         public static float YtoAlt(float alt) {

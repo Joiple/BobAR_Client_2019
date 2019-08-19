@@ -15,6 +15,10 @@ namespace NormalScene.Pages.Timeline {
             return this;
         }
 
+        public void OnEnable() {
+            foreach(Transform t in timeLineTransform)Destroy(t.gameObject);
+            StartCoroutine(InitializeInternal());
+        }
         private IEnumerator InitializeInternal() {
             List<DummyReview> reviews = new List<DummyReview>();
             foreach (DummyReview rev in DummyContainer.instance.reviewDB.Values) {

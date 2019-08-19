@@ -18,7 +18,7 @@ MonoBehaviour:
   phoneNumber: 010-7572-4737
   longitude: 129.10394
   latitude: 35.1361065
-  altitude: 0
+  altitude: 25
   reviewKeys:
   - {fileID: 11400000, guid: 39fa49e513489634087f3c9bf340fdf2, type: 2}
   - {fileID: 11400000, guid: d142f5212909ee64e89134068a94c890, type: 2}

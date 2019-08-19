@@ -24,6 +24,7 @@ namespace MainScene.SearchPages {
 
         public void Clicked() {
             DataStorage.instance.AddItem(DataStorageKeyset.InitialScene, PageType.ReviewWritePage);
+            DataStorage.instance.AddItem(DataStorageKeyset.NextRestaurant, restaurantId);
             CustomSceneManager.instance.LoadScene(1);
 
         }
