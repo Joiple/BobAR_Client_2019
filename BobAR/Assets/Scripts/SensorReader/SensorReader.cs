@@ -2,70 +2,68 @@
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
-namespace SensorReader
-{
-    public class SensorReaderLibWrapper
-    {
+namespace SensorReader {
+
+    public class SensorReaderLibWrapper {
         private const string JcPath = "com.jaeguins.sensorreader.SensorReader",
-            initialize = "Initialize",
-            start = "Start",
-            checkRunning = "CheckRunning",
-            end = "End",
-            get = "Get";
+                             initialize = "Initialize",
+                             start = "Start",
+                             checkRunning = "CheckRunning",
+                             end = "End",
+                             get = "Get";
+
         static AndroidJavaClass jc = new AndroidJavaClass(JcPath);
-        public static void Initialize()
-        {
-#if UNITY_ANDROID
+
+        public static void Initialize() {
+#if UNITY_ANDROID && !UNITY_EDITOR
             AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
             AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
             AndroidJavaObject context = activity.Call<AndroidJavaObject>("getApplicationContext");
             jc.CallStatic(initialize, context);
 #else
-            Debug.LogError("Non-Android is not supported");
+            Debug.LogWarning("Non-Android is not supported");
 #endif
         }
 
-        public static string Start(SensorType type)
-        {
-#if UNITY_ANDROID
+        public static string Start(SensorType type) {
+#if UNITY_ANDROID && !UNITY_EDITOR
             return jc.CallStatic<string>(start, (int)type);
 #else
-            Debug.LogError("Non-Android is not supported");
+            Debug.LogWarning("Non-Android is not supported");
+
             return "Non-Android is not supported";
 #endif
         }
 
-        public static bool IsRunning(SensorType type)
-        {
-#if UNITY_ANDROID
+        public static bool IsRunning(SensorType type) {
+#if UNITY_ANDROID && !UNITY_EDITOR
             return jc.CallStatic<bool>(checkRunning);
 #else
             Debug.LogError("Non-Android is not supported");
             return false;
 #endif
         }
-        public static float Get(SensorType type, int index)
-        {
-#if UNITY_ANDROID
+
+        public static float Get(SensorType type, int index) {
+#if UNITY_ANDROID && !Unity_EDITOR
             return jc.CallStatic<float>(get, (int) type, index);
 #else
-            Debug.LogError("Non-Android is not supported");
+            Debug.LogWarning("Non-Android is not supported");
             return -1f;
 #endif
         }
 
-        public static string End(SensorType type)
-        {
-#if UNITY_ANDROID
+        public static string End(SensorType type) {
+#if UNITY_ANDROID && !UNITY_EDITOR
             return jc.CallStatic<string>(end, (int) type);
 #else
-            Debug.LogError("Non-Android is not supported");
+            Debug.LogWarning("Non-Android is not supported");
             return "Non-Android is not supported";
 #endif
         }
     }
-    public enum SensorType
-    {
+
+    public enum SensorType {
         Accelerometer = 1,
         MagneticField = 2,
         Orientation = 3,
@@ -96,4 +94,5 @@ namespace SensorReader
         HeartBeat = 31,
         All = -1,
     }
+
 }

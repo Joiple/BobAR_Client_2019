@@ -11,17 +11,16 @@ using UnityEngine.UI;
 namespace ARComponents {
 
     public class Poi : MonoBehaviour {
-        public double longitude, latitude;
+        public Coordinate coord;
         public string id;
-        public float altitude;
         public Image thumbnail;
         public TextMeshProUGUI distanceIndicator;
         public double[] cross;
         private MainSceneManager manager;
         public AnimationCurve curve;
         public void RefreshPosition() {
-            cross = GpsManager.GetDistanceFromCenter(longitude, latitude);
-            transform.position = new Vector3((float)cross[1], GpsManager.AltToY(altitude), -(float)cross[0]);
+            cross = GpsManager.GetDistanceFromCenter(coord.longitude, coord.latitude);
+            transform.position = new Vector3((float)cross[1], GpsManager.AltToY(coord.altitude), -(float)cross[0]);
         }
 
         public Poi Initialize(MainSceneManager manager,string id="") {
@@ -35,9 +34,9 @@ namespace ARComponents {
         private IEnumerator InitializeInternal() {
             //TODO 서버수신 가게정보
             DummyRestaurant rest = DummyContainer.instance.restaurantDB[id];
-            longitude = rest.longitude;
-            latitude = rest.latitude;
-            altitude = rest.altitude;
+            coord.longitude = rest.longitude;
+            coord.latitude = rest.latitude;
+            coord.altitude = rest.altitude;
             DummyImage img = DummyContainer.instance.imageDB[DummyContainer.instance.GetIdOfProfileImage(rest)];
             thumbnail.sprite = Sprite.Create(img.image, new Rect(Vector2.zero, new Vector2(img.image.width, img.image.height)), Vector2.one / 2f);
             yield return null;
