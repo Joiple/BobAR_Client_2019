@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Common.PluginWrappers;
 using CustomSceneManagement;
 using UnityEngine;
 
@@ -10,7 +11,8 @@ namespace TitleScene {
         }
         public IEnumerator Coroutine() {
             yield return new WaitForSeconds(2f);
-            //TODO Toast
+            Toaster.Initialize();
+            Toaster.ShowToast("Server Connection Failed, Enable Demo mode.");
             CustomSceneManager.instance.LoadScene(0);
 
         }

@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Resources/Scenes/NormalScene.unity
     guid: 5971530990a6743429948d1d292124ef
+  - enabled: 1
+    path: Assets/Resources/Scenes/TitleScene.unity
+    guid: e629c3092debc7e4a830d916937cb8a5
   - enabled: 0
     path: Assets/BobAR_1.unity
     guid: 1f2b406a8d089a845ac150ff5d91904c
