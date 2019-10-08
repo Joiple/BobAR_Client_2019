@@ -48,7 +48,8 @@ MonoBehaviour:
   scenes:
   - MainScene
   - NormalScene
-  startingSceneIndex: 0
+  - TItleScene
+  startingSceneIndex: 2
   loadingScreen: LoadScene
   Goto: 0
   starter: 0
