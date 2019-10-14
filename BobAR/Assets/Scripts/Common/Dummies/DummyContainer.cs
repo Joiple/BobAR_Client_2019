@@ -12,6 +12,7 @@ namespace Common.Dummies {
             userDB = new Dictionary<string, DummyUser>();
             restaurantDB = new Dictionary<string, DummyRestaurant>();
             reviewDB = new Dictionary<string, DummyReview>();
+            pathDB = new Dictionary<string, DummyPath>();
             imageDB.Clear();
             userDB.Clear();
             restaurantDB.Clear();
@@ -20,17 +21,21 @@ namespace Common.Dummies {
             foreach(DummyUser user in users)userDB.Add(user.key,user);
             foreach(DummyRestaurant res in restaurants)restaurantDB.Add(res.key,res);
             foreach(DummyReview rev in reviews)reviewDB.Add(rev.key,rev);
+            foreach(DummyPath path in paths)pathDB.Add(path.key,path);
         }
 
         public DummyImage[] images;
         public DummyUser[] users;
         public DummyRestaurant[] restaurants;
         public DummyReview[] reviews;
+        public DummyPath[] paths;
 
         public Dictionary<string, DummyImage> imageDB;
         public Dictionary<string, DummyUser> userDB;
         public Dictionary<string, DummyRestaurant> restaurantDB;
         public Dictionary<string, DummyReview> reviewDB;
+        public Dictionary<string, DummyPath> pathDB;
+
 
         public List<string> CountReviewOfUser(string userKey) {
             DummyUser user = userDB[userKey];

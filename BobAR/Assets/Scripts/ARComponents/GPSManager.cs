@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using MainScene;
 using UnityEngine;
 using UnityEngine.Android;
 
@@ -21,6 +22,7 @@ namespace ARComponents {
         public List<Poi> pois;
         public bool runningGpsFlag = false;
         private LatLngUTMConverter converter;
+        public PathDrawer pathDrawer;
 
         public void Awake() {
             instance = this;
@@ -80,6 +82,7 @@ namespace ARComponents {
                 foreach (Poi p in pois) {
                     p.RefreshPosition();
                 }
+                pathDrawer.RefreshPosition();
 
                 Debug.Log(initialLon + "/" + initialLat + "/" + initialAlt);
 

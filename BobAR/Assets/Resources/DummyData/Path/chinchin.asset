@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de3ae8bed77800f41911f01b32bf9c2c, type: 3}
+  m_Name: chinchin
+  m_EditorClassIdentifier: 
+  coords:
+  - latitude: 35.133393
+    longitude: 129.101084
+    altitude: 25
+  - latitude: 35.135418
+    longitude: 129.100827
+    altitude: 25
+  - latitude: 35.13568
+    longitude: 129.103881
+    altitude: 25
+  - latitude: 35.135939
+    longitude: 129.103897
+    altitude: 25
+  - latitude: 35.136277
+    longitude: 129.103639
+    altitude: 25
+  key: chinchin

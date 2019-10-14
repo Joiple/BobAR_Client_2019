@@ -7,6 +7,7 @@ namespace DataManagement {
     public enum DataStorageKeyset {
         NextUser,
         NextRestaurant,
+        NextDrawPath,
         NextReview,
         InitialScene,
         MyKey,
