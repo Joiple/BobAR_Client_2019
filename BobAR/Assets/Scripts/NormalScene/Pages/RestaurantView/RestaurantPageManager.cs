@@ -66,6 +66,10 @@ namespace NormalScene.Pages.RestaurantView {
             DataStorage.instance.AddItem(DataStorageKeyset.NextRestaurant, id);
             manager.AddPage(PageType.ReviewWritePage);
         }
+        public void FindPath() {
+            DataStorage.instance.AddItem(DataStorageKeyset.NextDrawPath, id);
+            manager.Exit(true);
+        }
     }
 
 }

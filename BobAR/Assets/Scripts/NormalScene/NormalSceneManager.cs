@@ -40,9 +40,8 @@ namespace NormalScene
             }
         }
 
-        public void Exit()
-        {
-
+        public void Exit(bool immediate = false) {
+            if (immediate) CustomSceneManager.instance.LoadScene(0);
             if (pageStack.Count > 1)
             {
                 Page temp = pageStack.Last.Value;
